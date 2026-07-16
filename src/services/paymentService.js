@@ -1,4 +1,3 @@
-
 const crypto = require('node:crypto');
 
 // =====================================
@@ -65,25 +64,27 @@ const processPayment = (
 ) => {
   const amount = Number(total);
 
+  // Validate amount first
   if (!Number.isFinite(amount) || amount < 0) {
     return {
       success: false,
       status: 'Failed',
-      gateway: null,
+      gateway: 'Validation Error',
       paymentMethod: null,
       reference: null,
       amount: 0,
-      message: 'Invalid payment amount',
+      message: 'Invalid total amount',
     };
   }
 
+  // Validate payment method
   const method = normalizePaymentMethod(paymentMethod);
 
   if (!method) {
     return {
       success: false,
       status: 'Failed',
-      gateway: null,
+      gateway: 'Validation Error',
       paymentMethod: null,
       reference: null,
       amount,
@@ -91,9 +92,10 @@ const processPayment = (
     };
   }
 
+  // Successful payment initialization
   return {
     success: true,
-    status: method.key === 'cash_on_delivery' ? 'Pending' : 'Pending',
+    status: 'Pending',
     gateway: method.gateway,
     paymentMethod: method.key,
     reference: generateReference(method.key),
@@ -106,3 +108,6 @@ const processPayment = (
 module.exports = {
   processPayment,
 };
+
+
+

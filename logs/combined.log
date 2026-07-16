@@ -6,3 +6,11 @@
 {"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 10:04:26"}
 {"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 10:05:16"}
 {"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 10:05:16"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 10:12:32"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 10:12:32"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [16/Jul/2026:09:43:42 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-16 10:43:42"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [16/Jul/2026:09:43:42 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-16 10:43:42"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 10:57:30"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 10:57:30"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [16/Jul/2026:09:58:20 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-16 10:58:20"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [16/Jul/2026:09:58:21 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-16 10:58:21"}
