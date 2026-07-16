@@ -5,7 +5,7 @@ const User = require('../models/User');
 //create  a function to generate a JWT token for the user
 const createToken = (user) =>
   jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET || 'dev-secret', {
-    expiresIn: '7d',
+    expiresIn: '30d',
   });
 
   // create a function to sanitize the user object
@@ -45,7 +45,9 @@ exports.signup = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({
+      email: req.body.email,
+      }).select('+password');
     if (!user) {
       return res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
@@ -88,6 +90,21 @@ exports.updateProfile = async (req, res, next) => {
       success: true,
       message: 'Profile updated successfully',
       data: { user: sanitizeUser(req.user) },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+exports.deleteProfile = async (req, res, next) => {
+  try {
+    await User.findByIdAndDelete(req.user._id);
+
+    res.status(200).json({
+      success: true,
+      message: 'Account deleted successfully',
     });
   } catch (error) {
     next(error);

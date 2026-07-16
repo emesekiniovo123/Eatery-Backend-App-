@@ -8,6 +8,7 @@ const {
   login,
   getProfile,
   updateProfile,
+  deleteProfile,
 } = require('../controllers/authController');
 
 const {
@@ -194,6 +195,11 @@ router.put(
   updateProfile
 );
 
+router.delete(
+  '/profile',
+  protect,
+  deleteProfile
+);
 // =====================================
 // Export Router
 // =====================================

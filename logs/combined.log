@@ -14,3 +14,84 @@
 {"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 10:57:30"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [16/Jul/2026:09:58:20 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-16 10:58:20"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [16/Jul/2026:09:58:21 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-16 10:58:21"}
+{"level":"info","message":"::1 - - [16/Jul/2026:12:38:35 +0000] \"POST / HTTP/1.1\" 404 1398 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 13:38:35"}
+{"level":"info","message":"::1 - - [16/Jul/2026:12:39:36 +0000] \"POST / HTTP/1.1\" 404 1398 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 13:39:36"}
+{"level":"info","message":"::1 - - [16/Jul/2026:12:41:09 +0000] \"GET / HTTP/1.1\" 200 88 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 13:41:09"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 14:05:55"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 14:05:56"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 14:10:49"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 14:10:49"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:13:28 +0000] \"POST //api/auth HTTP/1.1\" 404 1416 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:13:28"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:17:52 +0000] \"POST /api/auth HTTP/1.1\" 404 1618 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:17:52"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:26:10 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 232 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:26:10"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:26:56 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 148 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:26:56"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:28:05 +0000] \"POST /api/auth/signup HTTP/1.1\" 201 550 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:28:05"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:32:27 +0000] \"POST /api/auth/signup HTTP/1.1\" 201 549 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:32:27"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:35:02 +0000] \"GET /api/auth/signup HTTP/1.1\" 404 1632 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:35:02"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:36:26 +0000] \"GET /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:36:26"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:36:33 +0000] \"GET /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:36:33"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:36:44 +0000] \"GET /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:36:44"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:38:42 +0000] \"POST /api/auth/login HTTP/1.1\" 500 1122 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:38:42"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:42:30 +0000] \"GET /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:42:30"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:57:32 +0000] \"POST /api/auth/login HTTP/1.1\" 500 1122 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:57:32"}
+{"level":"info","message":"::1 - - [16/Jul/2026:13:58:03 +0000] \"POST /api/auth/login HTTP/1.1\" 500 1122 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 14:58:03"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 15:16:13"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 15:16:13"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:20:54 +0000] \"POST /api/auth/login HTTP/1.1\" 200 538 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:20:54"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:23:41 +0000] \"POST /api/auth/login HTTP/1.1\" 200 538 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:23:41"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:24:11 +0000] \"POST /api/auth/login HTTP/1.1\" 401 49 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:24:11"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:24:26 +0000] \"POST /api/auth/login HTTP/1.1\" 401 49 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:24:26"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:24:48 +0000] \"POST /api/auth/login HTTP/1.1\" 200 538 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:24:48"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:24:58 +0000] \"POST /api/auth/login HTTP/1.1\" 401 49 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:24:58"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:25:20 +0000] \"POST /api/auth/login HTTP/1.1\" 401 49 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:25:20"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:27:11 +0000] \"POST /api/auth/login HTTP/1.1\" 200 537 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:27:11"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:27:56 +0000] \"POST /api/auth/login HTTP/1.1\" 200 537 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:27:56"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:28:03 +0000] \"POST /api/auth/login HTTP/1.1\" 200 537 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:28:03"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:28:26 +0000] \"POST /api/auth/login HTTP/1.1\" 200 537 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:28:26"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:28:33 +0000] \"POST /api/auth/login HTTP/1.1\" 200 537 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:28:33"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:38:02 +0000] \"POST /api/auth/profile HTTP/1.1\" 404 1634 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:38:02"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:38:42 +0000] \"GET /api/auth/profile HTTP/1.1\" 200 331 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:38:42"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:40:45 +0000] \"GET /api/auth/profile HTTP/1.1\" 401 53 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:40:45"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:42:50 +0000] \"GET /api/auth/profile HTTP/1.1\" 401 53 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:42:50"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:43:10 +0000] \"GET /api/auth/profile HTTP/1.1\" 200 331 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:43:10"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:43:46 +0000] \"DELETE /api/auth/profile HTTP/1.1\" 404 1634 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:43:46"}
+{"level":"info","message":"::1 - - [16/Jul/2026:14:44:33 +0000] \"DELETE /api/auth/profile HTTP/1.1\" 404 1634 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 15:44:33"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [16/Jul/2026:16:16:23 +0000] \"GET /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:16:24"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:17:31 +0000] \"POST /api/auth/login HTTP/1.1\" 200 538 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:17:31"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:20:06 +0000] \"PATCH /api/auth/login/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1680 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:20:06"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:20:36 +0000] \"PATCH /api/auth/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1668 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:20:36"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:20:48 +0000] \"PUT /api/auth/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1668 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:20:49"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:21:02 +0000] \"POST /api/auth/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1668 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:21:02"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:21:13 +0000] \"DELETE /api/auth/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1668 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:21:13"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:21:39 +0000] \"DELETE /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:21:39"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:21:49 +0000] \"DELETE /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:21:49"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:22:13 +0000] \"DELETE /api/auth/profile HTTP/1.1\" 404 1634 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:22:13"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:23:23 +0000] \"PUT /api/auth/profile HTTP/1.1\" 200 344 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:23:23"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:24:41 +0000] \"DELETE /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:24:41"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:24:47 +0000] \"DELETE /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:24:47"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:25:51 +0000] \"POST /api/auth/login HTTP/1.1\" 401 49 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:25:51"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:26:04 +0000] \"POST /api/auth/login HTTP/1.1\" 200 538 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:26:04"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:27:44 +0000] \"DELETE /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:27:44"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:28:34 +0000] \"GET /api/auth/profile HTTP/1.1\" 200 331 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:28:34"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:29:01 +0000] \"GET /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:29:01"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:29:16 +0000] \"POST /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:29:16"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:29:30 +0000] \"PUT /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:29:30"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:29:40 +0000] \"PATCH /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:29:40"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:29:48 +0000] \"DELETE /api/auth/profile/6a58dc628acf72feb4465c61 HTTP/1.1\" 404 1684 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:29:48"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:30:27 +0000] \"DELETE /api/login HTTP/1.1\" 404 1636 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:30:27"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:31:05 +0000] \"DELETE /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:31:05"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:31:19 +0000] \"DELETE /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:31:19"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:32:01 +0000] \"DELETE /api/auth/login HTTP/1.1\" 404 1630 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:32:01"}
+{"level":"info","message":"::1 - - [16/Jul/2026:16:32:15 +0000] \"POST /api/auth/login HTTP/1.1\" 200 537 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 17:32:15"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:10:18 +0000] \"GET /api/auth/signup HTTP/1.1\" 404 1632 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:10:18"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:11:08 +0000] \"POST /api/auth/signup HTTP/1.1\" 409 54 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:11:08"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:14:09 +0000] \"POST /api/auth/signup HTTP/1.1\" 201 547 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:14:09"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:20:52 +0000] \"POST /api/auth/login HTTP/1.1\" 200 535 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:20:52"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:24:06 +0000] \"GET /api/auth/profile HTTP/1.1\" 200 328 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:24:06"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:25:22 +0000] \"POST /api/auth/profile HTTP/1.1\" 404 1634 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:25:22"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:25:36 +0000] \"GET /api/auth/profile HTTP/1.1\" 401 53 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:25:36"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:25:56 +0000] \"GET /api/auth/profile HTTP/1.1\" 200 328 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:25:56"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:31:46 +0000] \"PUT /api/auth/profile HTTP/1.1\" 200 356 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:31:46"}
+{"level":"info","message":"::1 - - [16/Jul/2026:17:33:30 +0000] \"PUT /api/auth/profile HTTP/1.1\" 200 356 \"-\" \"PostmanRuntime/7.54.0\"","service":"food-ordering-api","timestamp":"2026-07-16 18:33:30"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 18:49:34"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 18:49:34"}
