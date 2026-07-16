@@ -1,0 +1,8 @@
+{"level":"error","message":"MongoDB connection failed: Server selection timed out after 5000 ms","service":"food-ordering-api","timestamp":"2026-07-15 20:00:31"}
+{"level":"error","message":"MongoDB connection failed: Server selection timed out after 5000 ms","service":"food-ordering-api","timestamp":"2026-07-15 20:24:21"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 09:51:03"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 09:51:04"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 10:04:26"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 10:04:26"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-16 10:05:16"}
+{"level":"info","message":"Server is running on http://localhost:8000","service":"food-ordering-api","timestamp":"2026-07-16 10:05:16"}

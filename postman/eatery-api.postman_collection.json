@@ -1,0 +1,27 @@
+{
+  "info": {
+    "name": "Eatery Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth Signup",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"address\": \"123 Test Street\"\n}"
+        },
+        "url": { "raw": "http://localhost:2026/api/auth/signup", "host": ["http://localhost:2026"], "path": ["api", "auth", "signup"] }
+      }
+    },
+    {
+      "name": "Get Menu",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:2026/api/menu", "host": ["http://localhost:2026"], "path": ["api", "menu"] }
+      }
+    }
+  ]
+}

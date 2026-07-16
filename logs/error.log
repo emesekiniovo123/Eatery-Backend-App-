@@ -1,0 +1,2 @@
+{"level":"error","message":"MongoDB connection failed: Server selection timed out after 5000 ms","service":"food-ordering-api","timestamp":"2026-07-15 20:00:31"}
+{"level":"error","message":"MongoDB connection failed: Server selection timed out after 5000 ms","service":"food-ordering-api","timestamp":"2026-07-15 20:24:21"}
