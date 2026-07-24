@@ -1,19 +1,49 @@
-require('dotenv').config();
-const app = require('./src/app');
-const connectDB = require('./src/config/db');
-const logger = require('./src/utils/logger');
 
-const PORT = process.env.PORT || 2026;
+require("dotenv").config();
 
-(async () => {
+const express = require("express");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(express.json());
+
+// MongoDB connection
+const uri = process.env.MONGO_URI;
+
+console.log("Mongo URI:", process.env.MONGO_URI);
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+
+async function connectDB() {
   try {
-    await connectDB();
-    app.listen(PORT, () => {
-      logger.info(`Server is running on http://localhost:${PORT}`);
-    });
-  } catch (error) {
-    logger.error('Failed to start server: %s', error.message);
-    process.exit(1);
+    await client.connect();
+    console.log("✅ Connected to MongoDB Atlas");
+
+    // Optional: Verify the connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("✅ Ping successful");
+  } catch (err) {
+    console.error("❌ MongoDB connection failed:", err);
   }
-})();
+}
+
+connectDB();
+
+// Routes
+app.get("/", (req, res) => {
+  res.send("Welcome to eatery server app");
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 

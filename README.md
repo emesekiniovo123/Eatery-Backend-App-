@@ -36,7 +36,7 @@ This backend powers a food ordering platform with authentication, menu managemen
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 18+ LTS Version
 - MongoDB instance
 - npm
 
@@ -114,8 +114,46 @@ Swagger documentation is available at:
 - /api/docs
 
 ## Testing
-
 Run the automated test suite:
+npm test
+Here's what your output tells us:
+
+✔ postman\test.js
+✅ Your Postman-related test passed.
+✅ Connected!
+✔ src\test.js
+✅ src/test.js successfully connected to MongoDB using the non-SRV connection string.
+✅ Connected!
+✔ test.js
+✅ The root test.js that was previously failing has also connected successfully.
+This confirms that replacing the SRV URI fixed the querySrv ECONNREFUSED problem.
+✔ GET /health returns a healthy API response
+✔ POST /api/auth/signup returns validation errors for invalid input
+✔ processPayment returns pending payment details
+✔ processPayment rejects invalid totals and unsupported methods
+✅ Your API endpoints and payment logic are behaving as expected.
+
+And the summary:
+
+ℹ tests 7
+ℹ pass 7
+ℹ fail 0
+
+means:
+
+7 tests executed
+7 tests passed
+0 tests failed
+0 tests skipped
+
+Now you have:
+
+✅ MongoDB connected
+✅ Server starts normally
+✅ All tests passing
+✅ npm run dev works
+✅ npm test works
+
 ```bash
 npm test
 ```

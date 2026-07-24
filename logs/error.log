@@ -1,2 +1,76 @@
 {"level":"error","message":"MongoDB connection failed: Server selection timed out after 5000 ms","service":"food-ordering-api","timestamp":"2026-07-15 20:00:31"}
 {"level":"error","message":"MongoDB connection failed: Server selection timed out after 5000 ms","service":"food-ordering-api","timestamp":"2026-07-15 20:24:21"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-18 15:03:21"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-18 17:04:03"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-18 20:18:11"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-20 18:02:02"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 11:29:23"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 13:01:15"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 14:09:43"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 14:43:21"}
+{"level":"error","message":"MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 15:06:05"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:28:54"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:28:57"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:29:00"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:29:03"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:29:06"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:32:10"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:32:13"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:32:16"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:32:20"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:32:23"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.Josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:44:41"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.Josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:44:44"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.Josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:44:47"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.Josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:44:50"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.Josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 18:44:53"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:14:55"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:15:08"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:15:21"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:15:34"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:15:47"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:22:47"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:23:00"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:23:13"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:23:26"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 19:23:39"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:11:48"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:11:52"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:11:55"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:11:58"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:12:01"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:35:28"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:35:31"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:35:34"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:35:37"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-21 20:35:40"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","service":"food-ordering-api","timestamp":"2026-07-21 21:46:37"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 21:46:51"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 21:47:04"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 21:47:17"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: Server selection timed out after 10000 ms","service":"food-ordering-api","timestamp":"2026-07-21 21:47:30"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:54:14"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:54:17"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:54:20"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:54:23"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:54:26"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:58:54"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:58:57"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:59:00"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:59:03"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 06:59:06"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:36:57"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:37:00"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:37:03"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:37:06"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:37:10"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:38:46"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:38:49"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:38:52"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:38:55"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 11:38:58"}
+{"level":"error","message":"MongoDB connection attempt 1 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 12:54:09"}
+{"level":"error","message":"MongoDB connection attempt 2 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 12:54:12"}
+{"level":"error","message":"MongoDB connection attempt 3 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 12:54:15"}
+{"level":"error","message":"MongoDB connection attempt 4 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 12:54:18"}
+{"level":"error","message":"MongoDB connection attempt 5 failed: querySrv ECONNREFUSED _mongodb._tcp.josiah.qpkw0xd.mongodb.net","service":"food-ordering-api","timestamp":"2026-07-24 12:54:21"}
