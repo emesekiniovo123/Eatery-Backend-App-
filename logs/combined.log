@@ -373,3 +373,7 @@
 {"level":"info","message":"::1 - - [25/Jul/2026:20:50:12 +0000] \"POST /api/menu/ HTTP/1.1\" 401 53 \"-\" \"PostmanRuntime/7.55.1\"","service":"food-ordering-api","timestamp":"2026-07-25 21:50:12"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [26/Jul/2026:15:04:21 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-26 16:04:21"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [26/Jul/2026:15:04:21 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-07-26 16:04:21"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-07-26 16:05:29"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-26 16:05:32"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-07-26 16:17:17"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-26 16:17:19"}
