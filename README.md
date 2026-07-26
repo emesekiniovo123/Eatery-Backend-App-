@@ -68,7 +68,7 @@ Make sure the following are installed on your machine before proceeding:
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/emesekiniovo123/eatery-server.git
+git clone https://github.com/emesekiniovo123/Eatery-Backend-App.git
 cd eatery-server
 ```
 
