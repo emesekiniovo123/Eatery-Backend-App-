@@ -120,6 +120,29 @@ exports.getOrders = async (req, res, next) => {
 };
 
 // =====================================
+// Get My Orders
+// =====================================
+exports.getMyOrders = async (req, res, next) => {
+  try {
+    const orders = await Order.find({
+      customer: req.user._id,
+    })
+      .sort({ createdAt: -1 })
+      .populate('customer', 'fullName email')
+      .populate('items.food')
+      .lean();
+
+    res.status(200).json({
+      success: true,
+      message: 'My orders fetched successfully',
+      data: { orders },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// =====================================
 // Get Order By ID
 // =====================================
 exports.getOrderById = async (req, res, next) => {
