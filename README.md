@@ -690,3 +690,6 @@ This section documents how the backend meets every requirement from the **Online
 | CORS configured for frontend | ✅ Ready | Set `CLIENT_URL` to your deployed frontend URL |
 | Docker support | ✅ Ready | `Dockerfile` and `docker-compose.yml` included |
 
+## Backend Deployment URL
+https://online-eatery-server.onrender.com
+
