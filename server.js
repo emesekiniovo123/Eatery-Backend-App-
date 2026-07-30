@@ -39,7 +39,7 @@ connectDB();
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Welcome to eatery server app");
+  res.send("Welcome to online eatery server app");
 });
 
 // Start server
