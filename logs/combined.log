@@ -415,3 +415,5 @@
 {"level":"info","message":"::1 - - [30/Jul/2026:15:36:32 +0000] \"GET /api/docs/swagger-ui.css HTTP/1.1\" 200 178977 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36\"","service":"food-ordering-api","timestamp":"2026-07-30 16:36:32"}
 {"level":"info","message":"::1 - - [30/Jul/2026:15:36:32 +0000] \"GET /api/docs/swagger-ui-bundle.js HTTP/1.1\" 200 1537593 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36\"","service":"food-ordering-api","timestamp":"2026-07-30 16:36:32"}
 {"level":"info","message":"::1 - - [30/Jul/2026:15:36:33 +0000] \"GET /api/docs/favicon-32x32.png HTTP/1.1\" 200 628 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36\"","service":"food-ordering-api","timestamp":"2026-07-30 16:36:33"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-07-30 16:46:00"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-07-30 16:46:08"}
