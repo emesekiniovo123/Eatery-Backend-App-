@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Food = require('../models/Food');
+const { normalizeImageUrl } = require('../utils/imageUrl');
 
 const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 
@@ -91,11 +92,16 @@ exports.getMenu = async (req, res, next) => {
       Food.countDocuments(filter),
     ]);
 
+    const normalizedFoods = foods.map((food) => ({
+      ...food,
+      image: normalizeImageUrl(food.image),
+    }));
+
     res.status(200).json({
       success: true,
       message: 'Menu fetched successfully',
       data: {
-        foods,
+        foods: normalizedFoods,
         pagination: {
           page,
           limit,
@@ -135,7 +141,12 @@ exports.getFoodById = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: 'Food fetched successfully',
-      data: { food },
+      data: {
+        food: {
+          ...food,
+          image: normalizeImageUrl(food.image),
+        },
+      },
     });
   } catch (error) {
     next(error);
@@ -158,11 +169,15 @@ exports.createFood = async (req, res, next) => {
     }
 
     const food = await Food.create(payload);
+    const normalizedFood = {
+      ...food.toObject(),
+      image: normalizeImageUrl(food.image),
+    };
 
     res.status(201).json({
       success: true,
       message: 'Food created successfully',
-      data: { food },
+      data: { food: normalizedFood },
     });
   } catch (error) {
     next(error);
@@ -201,11 +216,15 @@ exports.updateFood = async (req, res, next) => {
     Object.assign(food, updatePayload);
 
     await food.save();
+    const updatedFood = {
+      ...food.toObject(),
+      image: normalizeImageUrl(food.image),
+    };
 
     res.status(200).json({
       success: true,
       message: 'Food updated successfully',
-      data: { food },
+      data: { food: updatedFood },
     });
   } catch (error) {
     next(error);
