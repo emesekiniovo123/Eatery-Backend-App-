@@ -9,6 +9,11 @@ const router = express.Router();
 router.use('/auth', require('./authRoutes'));
 
 // =====================================
+// User compatibility aliases
+// =====================================
+router.use('/users', require('./userRoutes'));
+
+// =====================================
 // Menu Routes
 // =====================================
 router.use('/menu', require('./menuRoutes'));

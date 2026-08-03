@@ -63,7 +63,17 @@ const errorHandler = (err, req, res, next) => {
   const response = {
     success: false,
     message,
+    errors: [],
   };
+
+  if (err.errors && Array.isArray(err.errors)) {
+    response.errors = err.errors;
+  } else if (err instanceof mongoose.Error.ValidationError) {
+    response.errors = Object.values(err.errors).map((validationError) => ({
+      field: validationError.path,
+      message: validationError.message,
+    }));
+  }
 
   // Include stack trace only in development
   if (process.env.NODE_ENV !== 'production') {

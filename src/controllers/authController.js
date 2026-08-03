@@ -2,10 +2,12 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+const JWT_EXPIRY = process.env.JWT_EXPIRES_IN || '30d';
+
 //create  a function to generate a JWT token for the user
 const createToken = (user) =>
   jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET || 'dev-secret', {
-    expiresIn: '30d',
+    expiresIn: JWT_EXPIRY,
   });
 
   // create a function to sanitize the user object

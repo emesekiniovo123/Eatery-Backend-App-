@@ -12,8 +12,11 @@ const foodValidation = [
 const menuQueryValidation = [
   query('page').optional().isInt({ min: 1 }),
   query('limit').optional().isInt({ min: 1, max: 50 }),
+  query('minPrice').optional().isFloat({ min: 0 }),
+  query('maxPrice').optional().isFloat({ min: 0 }),
+  query('priceMin').optional().isFloat({ min: 0 }),
   query('priceMax').optional().isFloat({ min: 0 }),
-  query('sort').optional().isIn(['price', 'rating']),
+  query('sort').optional().isIn(['price', 'rating', 'newest', 'price-asc', 'price-desc']),
 ];
 
 module.exports = { foodValidation, menuQueryValidation };

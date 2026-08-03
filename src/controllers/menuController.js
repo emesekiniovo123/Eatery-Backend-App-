@@ -38,22 +38,20 @@ exports.getMenu = async (req, res, next) => {
       filter.available = req.query.available === 'true';
     }
 
+    // Backward-compatible price filtering aliases
+    const minPrice = req.query.minPrice ?? req.query.priceMin;
+    const maxPrice = req.query.maxPrice ?? req.query.priceMax;
+
     // Price filtering
-    if (req.query.priceMin || req.query.priceMax) {
+    if (minPrice || maxPrice) {
       filter.price = {};
 
-      if (
-        req.query.priceMin &&
-        !Number.isNaN(Number(req.query.priceMin))
-      ) {
-        filter.price.$gte = Number(req.query.priceMin);
+      if (minPrice && !Number.isNaN(Number(minPrice))) {
+        filter.price.$gte = Number(minPrice);
       }
 
-      if (
-        req.query.priceMax &&
-        !Number.isNaN(Number(req.query.priceMax))
-      ) {
-        filter.price.$lte = Number(req.query.priceMax);
+      if (maxPrice && !Number.isNaN(Number(maxPrice))) {
+        filter.price.$lte = Number(maxPrice);
       }
 
       // Remove empty price filter
