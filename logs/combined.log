@@ -444,3 +444,11 @@
 {"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-01 22:06:44"}
 {"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-01 22:06:44"}
 {"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-01 22:06:44"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:17:21 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:17:21"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:17:22 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:17:22"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:18:45 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:18:45"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:18:45 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:18:45"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:19:13 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:19:13"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:19:13 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:19:13"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:19:21 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:19:21"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:19:22 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:19:22"}
