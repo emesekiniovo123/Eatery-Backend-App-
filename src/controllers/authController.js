@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-const JWT_EXPIRY = process.env.JWT_EXPIRES_IN || '30d';
+const JWT_EXPIRY = process.env.JWT_EXPIRES_IN || '7d';
 
 //create  a function to generate a JWT token for the user
 const createToken = (user) =>
@@ -112,3 +112,6 @@ exports.deleteProfile = async (req, res, next) => {
     next(error);
   }
 };
+
+
+

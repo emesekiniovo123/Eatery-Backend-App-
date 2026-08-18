@@ -112,7 +112,10 @@ MONGO_URI=mongodb://127.0.0.1:27017/eaterydb
 JWT_SECRET=replace_this_with_a_strong_secret_key
 
 # CORS — set to your frontend URL (comma-separated for multiple origins)
-CLIENT_URL=http://localhost:3000
+CLIENT_URL=https://online-eatery.vercel.app
+
+# Public backend origin used for absolute image URLs returned by the API
+PUBLIC_BASE_URL=https://online-eatery-server.onrender.com
 
 # Logging (optional)
 LOG_LEVEL=info

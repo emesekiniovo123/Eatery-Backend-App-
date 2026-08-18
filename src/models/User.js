@@ -2,6 +2,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+//SALT_ROUNDS = Is how many times bcrypt processes a password during hashing.
 const SALT_ROUNDS = 12;
 
 // =====================================

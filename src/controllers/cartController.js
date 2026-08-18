@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Cart = require('../models/Cart');
 const Food = require('../models/Food');
 
-// Calculate total cart price
+//This function Calculate total cart price
 const calculateTotal = (items) =>
   items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 

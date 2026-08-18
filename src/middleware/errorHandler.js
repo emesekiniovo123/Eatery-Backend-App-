@@ -1,4 +1,4 @@
-
+//I imported mongoose: ValidationError handling  
 const mongoose = require('mongoose');
 
 // =====================================
@@ -11,9 +11,11 @@ const notFound = (req, res, next) => {
 };
 
 // =====================================
-// Global Error Handler
+// Global Error Handler:All errorrs in the application will be forward here. 
 // =====================================
 const errorHandler = (err, req, res, next) => {
+
+  //Set default status code & message if error has no status code 
   let statusCode = err.statusCode || err.status || 500;
   let message = err.message || 'Internal Server Error';
 
@@ -35,9 +37,9 @@ const errorHandler = (err, req, res, next) => {
     message = 'Invalid resource ID';
   }
 
-  // =====================================
-  // Duplicate Key Error
-  // =====================================
+  // =============================================
+  // Duplicate Key Error E.g email already exists
+  // =============================================
   if (err.code === 11000) {
     statusCode = 409;
     const field = Object.keys(err.keyValue)[0];

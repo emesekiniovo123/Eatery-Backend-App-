@@ -1,4 +1,4 @@
-//Import the reduired models
+//Import the required models
 const User = require('../models/User');
 const Order = require('../models/Order');
 const Review = require('../models/Review');
@@ -23,8 +23,22 @@ exports.getDashboard = async (req, res, next) => {
       Order.countDocuments({ orderStatus: 'Pending' }),
       Order.countDocuments({ orderStatus: 'Delivered' }),
       Order.countDocuments({ orderStatus: 'Cancelled' }),
-      Order.aggregate([{ $group: { _id: null, revenue: { $sum: '$total' } } }]),
+
+      //Calculating total revenue
+      Order.aggregate([
+        { $group: {
+           _id: null, 
+           revenue: { 
+            $sum: '$total'
+           }
+           }
+           }
+          ]),
+
+          //Counts total number of customer reviews submitted
       Review.countDocuments(),
+
+          //Calculating the most ordered foods
       Order.aggregate([
         { $unwind: '$items' },
         { $group: { _id: '$items.food', count: { $sum: '$items.quantity' } } },
@@ -32,10 +46,14 @@ exports.getDashboard = async (req, res, next) => {
         { $limit: 5 },
         { $lookup: { from: 'foods', localField: '_id', foreignField: '_id', as: 'food' } },
       ]),
-      Order.aggregate([
-        { $group: { _id: { month: { $month: '$createdAt' }, year: { $year: '$createdAt' } }, sales: { $sum: '$total' } } },
+//Calculating the sales by month
+    
+      Order.aggregate([{ $group: { _id: { month: { $month: '$createdAt' }, year: { $year: '$createdAt' } }, sales: { $sum: '$total' } } },
         { $sort: { '_id.year': 1, '_id.month': 1 } },
       ]),
+
+
+      //Recent oders
       Order.find()
         .sort({ createdAt: -1 })
         .limit(5)
@@ -67,3 +85,5 @@ exports.getDashboard = async (req, res, next) => {
     next(error);
   }
 };
+
+// Note : The -1 here means descending order

@@ -452,3 +452,21 @@
 {"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:19:13 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:19:13"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:19:21 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:19:21"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [03/Aug/2026:14:19:22 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-03 15:19:22"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-08-03 17:56:34"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-03 17:56:38"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-08-18 10:49:05"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-18 10:49:14"}
+{"level":"info","message":"::1 - - [18/Aug/2026:09:58:56 +0000] \"POST /uploads HTTP/1.1\" 404 1667 \"-\" \"PostmanRuntime/7.56.0\"","service":"food-ordering-api","timestamp":"2026-08-18 10:58:56"}
+{"level":"info","message":"::1 - - [18/Aug/2026:10:07:23 +0000] \"POST /upload HTTP/1.1\" 404 1340 \"-\" \"PostmanRuntime/7.56.0\"","service":"food-ordering-api","timestamp":"2026-08-18 11:07:23"}
+{"level":"info","message":"::1 - - [18/Aug/2026:10:08:22 +0000] \"POST /upload HTTP/1.1\" 404 1340 \"-\" \"PostmanRuntime/7.56.0\"","service":"food-ordering-api","timestamp":"2026-08-18 11:08:22"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-08-18 11:39:04"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-18 11:39:16"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-08-18 11:40:46"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-18 11:40:48"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-08-18 12:37:33"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-18 12:37:36"}
+{"level":"info","message":"::1 - - [18/Aug/2026:11:48:45 +0000] \"POST /api/menu HTTP/1.1\" 400 301 \"-\" \"PostmanRuntime/7.56.0\"","service":"food-ordering-api","timestamp":"2026-08-18 12:48:45"}
+{"level":"info","message":"::1 - - [18/Aug/2026:12:32:12 +0000] \"POST /api/menu HTTP/1.1\" 201 425 \"-\" \"PostmanRuntime/7.56.0\"","service":"food-ordering-api","timestamp":"2026-08-18 13:32:12"}
+{"level":"info","message":"Attempting MongoDB connection (attempt 1)...","service":"food-ordering-api","timestamp":"2026-08-18 13:46:47"}
+{"level":"info","message":"MongoDB connected","service":"food-ordering-api","timestamp":"2026-08-18 13:46:50"}
+{"level":"info","message":"::1 - - [18/Aug/2026:12:53:56 +0000] \"POST /api/menu HTTP/1.1\" 201 425 \"-\" \"PostmanRuntime/7.56.0\"","service":"food-ordering-api","timestamp":"2026-08-18 13:53:56"}

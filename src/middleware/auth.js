@@ -47,18 +47,24 @@ const protect = async (req, res, next) => {
 
     // Find authenticated user
     const user = await User.findById(decoded.id).select('-password');
-
-    if (!user) {
+//If user account is deleted from Database,
+//   Authentication will fail.
+    if (!user) 
+      {
       return res.status(401).json({
         success: false,
         message: 'Authentication failed',
       });
     }
 
-    // Attach user to request
+    // Attach user to request if authentication is successful
     req.user = user;
 
+    // Calling next() tell Express that Authentication is successful
     next();
+
+
+    //Any error in the try block will be caught here and return a 401 Unauthorized response
   } catch (error) {
     return res.status(401).json({
       success: false,
@@ -67,9 +73,9 @@ const protect = async (req, res, next) => {
   }
 };
 
-// =====================================
-// Role Authorization
-// =====================================
+// ========================================================================================================
+// Role Authorization : (...roles) is  a  paramter that allow multiple roles like admin, customer, manager.
+// ========================================================================================================
 const authorizeRoles = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {
@@ -78,7 +84,7 @@ const authorizeRoles = (...roles) => {
         message: 'Authentication required',
       });
     }
-
+//Check if user role is not included  in the allowed roles
     if (!roles.includes(req.user.role)) {
       return res.status(403).json({
         success: false,
