@@ -1,21 +1,18 @@
+const fs = require('fs');
+const path = require('path');
 const multer = require('multer');
+const { isAllowedImage } = require('../utils/uploadStrategy');
 
-// =====================================
-// Allowed Image Types
-// =====================================
-const allowedMimeTypes = [
-  'image/jpeg',
-  'image/jpg',
-  'image/png',
-  'image/webp',
-  'image/gif',
-];
+const uploadDir = path.join(__dirname, '..', '..', 'uploads', 'food');
 
-// =====================================
-// File Filter
-// =====================================
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const storage = multer.memoryStorage();
+
 const fileFilter = (req, file, cb) => {
-  if (!allowedMimeTypes.includes(file.mimetype)) {
+  if (!isAllowedImage(file)) {
     return cb(
       new Error(
         'Only JPG, JPEG, PNG, WEBP, and GIF image files are allowed.'
@@ -26,19 +23,12 @@ const fileFilter = (req, file, cb) => {
   cb(null, true);
 };
 
-// =====================================
-// Upload Middleware
-// =====================================
-// Store the uploaded image temporarily in memory.
-// Cloudinary will receive the buffer afterwards.
-const storage = multer.memoryStorage();
-
 const upload = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: 2 * 1024 * 1024, // 2 MB
-    files: 1, // One image per request
+    fileSize: 5 * 1024 * 1024,
+    files: 1,
   },
 });
 

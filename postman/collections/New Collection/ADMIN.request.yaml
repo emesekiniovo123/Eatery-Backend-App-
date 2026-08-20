@@ -1,0 +1,22 @@
+$kind: http-request
+name: ADMIN
+url: http://localhost:8000/api/
+method: POST
+body:
+  type: json
+  content: "{\"fullName\": \"JOHN ADMIN\",\r
+
+    \"email\": \"ja@admin.com\",\r
+
+    \"password\": \"123456\",\r
+
+    \"phone\": \"+23470453634746\",\r
+
+    \"address\": \"Lagos Nigeria\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_080c}}"
+order: 1787222198979

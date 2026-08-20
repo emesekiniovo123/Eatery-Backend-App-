@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Food = require('../models/Food');
 const { normalizeImageUrl } = require('../utils/imageUrl');
-const uploadToCloudinary = require('../utils/uploadToCloudinary');
+const { resolveImageSource } = require('../utils/uploadStrategy');
 
 const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 
@@ -157,16 +157,14 @@ exports.createFood = async (req, res, next) => {
       ...req.body,
     };
 
-    if (req.file) {
-      console.log('📸 File received:', req.file.originalname);
+    if (req.file || req.body.image) {
+      console.log('📸 File received or image URL provided');
 
-      const result = await uploadToCloudinary(req.file.buffer);
+      const uploadedImage = await resolveImageSource(req);
 
-      console.log('☁️ Cloudinary secure URL:', result.secure_url);
-
-      payload.image = result.secure_url;
-    } else if (req.body.image) {
-      payload.image = req.body.image;
+      if (uploadedImage) {
+        payload.image = uploadedImage;
+      }
     }
 
     const food = await Food.create(payload);
@@ -215,16 +213,12 @@ exports.updateFood = async (req, res, next) => {
       ...req.body,
     };
 
-    if (req.file) {
-      console.log('📸 File received:', req.file.originalname);
+    if (req.file || req.body.image) {
+      const uploadedImage = await resolveImageSource(req);
 
-      const result = await uploadToCloudinary(req.file.buffer);
-
-      console.log('☁️ Cloudinary secure URL:', result.secure_url);
-
-      updatePayload.image = result.secure_url;
-    } else if (req.body.image) {
-      updatePayload.image = req.body.image;
+      if (uploadedImage) {
+        updatePayload.image = uploadedImage;
+      }
     }
 
     Object.assign(food, updatePayload);
