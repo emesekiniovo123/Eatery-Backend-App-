@@ -15,13 +15,16 @@ const logger = require('./utils/logger');
 
 const app = express();
 
-// Allow multiple frontend URLs
-const allowedOrigins = (
-  process.env.CLIENT_URL ||
-  'http://localhost:3000,https://online-eatery.vercel.app'
-)
-  .split(',')
-  .map((origin) => origin.trim());
+// Allow configured frontend URLs plus the deployed frontend origin.
+const allowedOrigins = new Set(
+  [
+    'http://localhost:3000',
+    'https://online-eatery.vercel.app',
+    ...(process.env.CLIENT_URL || '').split(','),
+  ]
+    .map((origin) => origin.trim().replace(/\/$/, ''))
+    .filter(Boolean)
+);
 
 app.use(helmet());
 
@@ -29,7 +32,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (e.g. Postman, curl)
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.has(origin.replace(/\/$/, ''))) {
         return callback(null, true);
       }
 
