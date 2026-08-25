@@ -4,7 +4,10 @@ require("dotenv").config();
 async function testConnection() {
   try {
     console.log("Connecting to MongoDB...");
-    console.log("URI:", process.env.MONGO_URI);
+
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI is not configured");
+    }
 
     await mongoose.connect(process.env.MONGO_URI);
 

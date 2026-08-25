@@ -4,16 +4,16 @@ require('dotenv').config();
 const app = require('./app');
 const connectDB = require('./config/db');
 
-const PORT = process.env.PORT || 8000;
+const PORT = Number(process.env.PORT) || 8000;
 
-console.log('server.js loaded');
-console.log('MONGO_URI present:', !!process.env.MONGO_URI);
+if (!process.env.JWT_SECRET) {
+  console.error('Startup failed: JWT_SECRET must be configured');
+  process.exit(1);
+}
 
 (async () => {
   try {
-    console.log('connecting to MongoDB...');
     await connectDB();
-    console.log('connectDB finished');
 
     if (!app || typeof app.listen !== 'function') {
       throw new Error('app is not an Express app or app.listen is missing');

@@ -91,7 +91,6 @@ const orderSchema = new mongoose.Schema(
       type: String,
       enum: [
         'Pending',
-        'Confirmed',
         'Preparing',
         'Out for Delivery',
         'Delivered',
@@ -99,6 +98,31 @@ const orderSchema = new mongoose.Schema(
       ],
       default: 'Pending',
       index: true,
+    },
+
+    statusHistory: {
+      type: [
+        {
+          status: {
+            type: String,
+            enum: [
+              'Pending',
+              'Preparing',
+              'Out for Delivery',
+              'Delivered',
+              'Cancelled',
+            ],
+            required: true,
+          },
+          changedAt: {
+            type: Date,
+            default: Date.now,
+          },
+        },
+      ],
+      default: function () {
+        return [{ status: this.orderStatus || 'Pending' }];
+      },
     },
   },
   {

@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const Cart = require('../models/Cart');
 const Food = require('../models/Food');
+const { recordActivity } = require('../utils/activityLogger');
 
 //This function Calculate total cart price
 const calculateTotal = (items) =>
@@ -62,6 +63,15 @@ exports.addToCart = async (req, res, next) => {
       });
     }
 
+    const isAvailable = food.isAvailable ?? food.available;
+
+    if (isAvailable !== true) {
+      return res.status(400).json({
+        success: false,
+        message: 'This food item is currently unavailable',
+      });
+    }
+
     let cart = await Cart.findOne({ user: req.user._id });
 
     if (!cart) {
@@ -90,6 +100,7 @@ exports.addToCart = async (req, res, next) => {
     cart.totalPrice = calculateTotal(cart.items);
 
     await cart.save();
+    await recordActivity({ user: req.user, action: 'cart_item_added', resourceType: 'Food', resourceId: food._id, metadata: { quantity } });
     await cart.populate('items.food');
 
     res.status(200).json({
@@ -150,6 +161,7 @@ exports.updateCart = async (req, res, next) => {
     cart.totalPrice = calculateTotal(cart.items);
 
     await cart.save();
+    await recordActivity({ user: req.user, action: 'cart_item_updated', resourceType: 'Food', resourceId: foodId, metadata: { quantity: Number(quantity) } });
     await cart.populate('items.food');
 
     res.status(200).json({
@@ -193,6 +205,7 @@ exports.removeItem = async (req, res, next) => {
     cart.totalPrice = calculateTotal(cart.items);
 
     await cart.save();
+    await recordActivity({ user: req.user, action: 'cart_item_removed', resourceType: 'Food', resourceId: foodId });
     await cart.populate('items.food');
 
     res.status(200).json({
@@ -211,6 +224,7 @@ exports.removeItem = async (req, res, next) => {
 exports.clearCart = async (req, res, next) => {
   try {
     await Cart.findOneAndDelete({ user: req.user._id });
+    await recordActivity({ user: req.user, action: 'cart_cleared', resourceType: 'Cart', resourceId: req.user._id });
 
     res.status(200).json({
       success: true,

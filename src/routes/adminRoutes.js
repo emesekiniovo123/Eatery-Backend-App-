@@ -3,7 +3,12 @@ const express = require('express');
 
 const router = express.Router();
 
-const { getDashboard } = require('../controllers/adminController');
+const {
+  getDashboard,
+  getActivities,
+  getUsers,
+  updateUserRole,
+} = require('../controllers/adminController');
 const { protect, authorizeRoles } = require('../middleware/auth');
 
 // =====================================
@@ -59,6 +64,27 @@ router.get(
   protect,
   authorizeRoles('admin'),
   getDashboard
+);
+
+router.get(
+  '/activities',
+  protect,
+  authorizeRoles('admin'),
+  getActivities
+);
+
+router.get(
+  '/users',
+  protect,
+  authorizeRoles('admin'),
+  getUsers
+);
+
+router.patch(
+  '/users/:id/role',
+  protect,
+  authorizeRoles('admin'),
+  updateUserRole
 );
 
 // =====================================

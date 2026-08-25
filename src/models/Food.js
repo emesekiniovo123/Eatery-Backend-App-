@@ -45,6 +45,12 @@ const foodSchema = new mongoose.Schema(
       trim: true,
     },
 
+    secondaryImage: {
+      type: String,
+      default: '',
+      trim: true,
+    },
+
     price: {
       type: Number,
       required: [true, 'Price is required'],
@@ -54,6 +60,10 @@ const foodSchema = new mongoose.Schema(
     available: {
       type: Boolean,
       default: true,
+    },
+
+    isAvailable: {
+      type: Boolean,
     },
 
     ingredients: {

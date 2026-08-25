@@ -1,14 +1,20 @@
 //Import modules
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { recordActivity } = require('../utils/activityLogger');
 
 const JWT_EXPIRY = process.env.JWT_EXPIRES_IN || '7d';
 
 //create  a function to generate a JWT token for the user
-const createToken = (user) =>
-  jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET || 'dev-secret', {
+const createToken = (user) => {
+  if (!process.env.JWT_SECRET) {
+    throw new Error('JWT_SECRET is not configured');
+  }
+
+  return jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
     expiresIn: JWT_EXPIRY,
   });
+};
 
   // create a function to sanitize the user object
   //  by removing sensitive information like password
@@ -35,6 +41,7 @@ exports.signup = async (req, res, next) => {
     });
 
     const token = createToken(user);
+    await recordActivity({ user, action: 'signup', resourceType: 'User', resourceId: user._id });
     res.status(201).json({
       success: true,
       message: 'Account created successfully',
@@ -60,6 +67,7 @@ exports.login = async (req, res, next) => {
     }
 
     const token = createToken(user);
+    await recordActivity({ user, action: 'login', resourceType: 'User', resourceId: user._id });
     res.status(200).json({
       success: true,
       message: 'Login successful',
@@ -88,6 +96,7 @@ exports.updateProfile = async (req, res, next) => {
     });
 
     await req.user.save();
+    await recordActivity({ user: req.user, action: 'profile_updated', resourceType: 'User', resourceId: req.user._id });
     res.status(200).json({
       success: true,
       message: 'Profile updated successfully',

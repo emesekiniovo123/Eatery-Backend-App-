@@ -16,7 +16,7 @@ const {
   updateCartValidation,
 } = require('../validators/cart');
 
-const { validate } = require('../middleware/validate');
+const { validate, rejectUnknownFields } = require('../middleware/validate');
 const { protect } = require('../middleware/auth');
 
 // =====================================
@@ -104,6 +104,7 @@ router.get(
 router.post(
   '/add',
   protect,
+  rejectUnknownFields(['foodId', 'quantity']),
   addToCartValidation,
   validate,
   addToCart
@@ -150,6 +151,7 @@ router.post(
 router.put(
   '/update',
   protect,
+  rejectUnknownFields(['foodId', 'quantity']),
   updateCartValidation,
   validate,
   updateCart

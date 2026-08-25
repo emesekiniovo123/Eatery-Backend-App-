@@ -12,7 +12,7 @@ const options = {
 
     servers: [
       {
-        url: 'http://localhost:8000',
+        url: `http://localhost:${process.env.PORT || 8000}`,
       },
     ],
 

@@ -56,12 +56,12 @@ tests/            - Automated smoke and regression tests
 
 Make sure the following are installed on your machine before proceeding:
 
-| Tool | Minimum Version | Notes |
-|------|----------------|-------|
-| [Node.js](https://nodejs.org) | **18.x LTS** or higher | Check with `node -v` |
-| [npm](https://www.npmjs.com) | **8.x** or higher | Bundled with Node.js. Check with `npm -v` |
-| [MongoDB](https://www.mongodb.com) | **6.x** or higher | Local install **or** a free [MongoDB Atlas](https://www.mongodb.com/atlas) cluster |
-| [Git](https://git-scm.com) | Any recent version | For cloning the repository |
+| Tool                               | Minimum Version        | Notes                                                                              |
+| ---------------------------------- | ---------------------- | ---------------------------------------------------------------------------------- |
+| [Node.js](https://nodejs.org)      | **18.x LTS** or higher | Check with `node -v`                                                               |
+| [npm](https://www.npmjs.com)       | **8.x** or higher      | Bundled with Node.js. Check with `npm -v`                                          |
+| [MongoDB](https://www.mongodb.com) | **6.x** or higher      | Local install **or** a free [MongoDB Atlas](https://www.mongodb.com/atlas) cluster |
+| [Git](https://git-scm.com)         | Any recent version     | For cloning the repository                                                         |
 
 ---
 
@@ -89,11 +89,13 @@ This installs all production and development dependencies listed in `package.jso
 Copy the example environment file and fill in your values:
 
 **Windows:**
+
 ```bash
 copy .env.example .env
 ```
 
 **Mac / Linux:**
+
 ```bash
 cp .env.example .env
 ```
@@ -121,21 +123,26 @@ PUBLIC_BASE_URL=https://online-eatery-server.onrender.com
 LOG_LEVEL=info
 ```
 
+The production entry point is `src/server.js`, invoked by `npm start`. The root
+`server.js` is a legacy uploader and is not used by the application scripts or Docker.
+
 #### Environment Variable Reference
 
-| Variable     | Required | Description                                                          | Example Value |
-|--------------|----------|----------------------------------------------------------------------|---------------|
-| `PORT`       | No       | Port the server listens on                                           |  |
-| `NODE_ENV`   | Yes      | Runtime environment: `development`, `production`, or `test`          | `development` |
-| `MONGO_URI`  | Yes      | Full MongoDB connection string (local or Atlas SRV)                  | `mongodb://user:pass@cluster.mongodb.net/eaterydb` |
-| `JWT_SECRET` | Yes      | Secret key used to sign and verify JWT tokens — keep this private    | `my api jwt` |
-| `CLIENT_URL` | No       | Allowed CORS origin(s). Separate multiple URLs with a comma          | `http://localhost:3000` |
-| `LOG_LEVEL`  | No       | Logging verbosity level (`error`, `warn`, `info`, `debug`)           | `info` |
+| Variable     | Required | Description                                                       | Example Value                                      |
+| ------------ | -------- | ----------------------------------------------------------------- | -------------------------------------------------- |
+| `PORT`       | No       | Port the server listens on                                        |                                                    |
+| `NODE_ENV`   | Yes      | Runtime environment: `development`, `production`, or `test`       | `development`                                      |
+| `MONGO_URI`  | Yes      | Full MongoDB connection string (local or Atlas SRV)               | `mongodb://user:pass@cluster.mongodb.net/eaterydb` |
+| `JWT_SECRET` | Yes      | Secret key used to sign and verify JWT tokens — keep this private | `my api jwt`                                       |
+| `CLIENT_URL` | No       | Allowed CORS origin(s). Separate multiple URLs with a comma       | `http://localhost:3000`                            |
+| `LOG_LEVEL`  | No       | Logging verbosity level (`error`, `warn`, `info`, `debug`)        | `info`                                             |
 
 > **Tip — MongoDB Atlas:** If you are using a cloud database, your `MONGO_URI` will look like:
+>
 > ```
 > mongodb://<username>:<password>@cluster0.abcde.mongodb.net/eaterydb?retryWrites=true&w=majority
 > ```
+>
 > Get this string from your Atlas cluster under **Connect → Drivers**.
 
 ---
@@ -155,16 +162,19 @@ This creates realistic sample data so you can test the API immediately without m
 ### Step 5 — Start the Server
 
 **Development mode** (auto-restarts on file changes via nodemon):
+
 ```bash
 npm run dev
 ```
 
 **Production mode** (standard Node.js, no auto-restart):
+
 ```bash
 npm start
 ```
 
 Once running, you should see:
+
 ```
 connecting to MongoDB...
 ✅ Connected to MongoDB
@@ -177,13 +187,12 @@ Visit `http://localhost:8000` to confirm the API is live.
 
 ### Available Scripts
 
-| Script | Command | Description |
-|--------|---------|-------------|
-| Start (dev) | `npm run dev` | Starts the server with nodemon (hot reload) |
-| Start (prod) | `npm start` | Starts the server with plain Node.js |
-| Test | `npm test` | Runs the full automated test suite |
-| Seed | `npm run seed` | Seeds the database with sample data |
-
+| Script       | Command        | Description                                 |
+| ------------ | -------------- | ------------------------------------------- |
+| Start (dev)  | `npm run dev`  | Starts the server with nodemon (hot reload) |
+| Start (prod) | `npm start`    | Starts the server with plain Node.js        |
+| Test         | `npm test`     | Runs the full automated test suite          |
+| Seed         | `npm run seed` | Seeds the database with sample data         |
 
 ---
 
@@ -192,21 +201,25 @@ Visit `http://localhost:8000` to confirm the API is live.
 > **Base URL:** `http://localhost:8000`
 >
 > **Authentication:** Protected routes require a Bearer token in the `Authorization` header:
+>
 > ```
 > Authorization: Bearer <your_jwt_token>
 > ```
+>
 > 🔒 = requires authentication &nbsp;&nbsp; 👑 = requires admin
+
 ### Authentication — `/api/auth`
 
-| Method | Endpoint          | Description                          | Auth |
-|--------|-------------------|--------------------------------------|------|
-| `POST` | `/api/auth/signup`  | Register a new user account          | —    |
-| `POST` | `/api/auth/login`   | Login and receive a JWT token        | —    |
-| `GET`  | `/api/auth/profile` | Get the authenticated user's profile | 🔒   |
-| `PUT`  | `/api/auth/profile` | Update the authenticated user's profile | 🔒 |
-| `DELETE` | `/api/auth/profile` | Delete the authenticated user's account | 🔒 |
+| Method   | Endpoint            | Description                             | Auth |
+| -------- | ------------------- | --------------------------------------- | ---- |
+| `POST`   | `/api/auth/signup`  | Register a new user account             | —    |
+| `POST`   | `/api/auth/login`   | Login and receive a JWT token           | —    |
+| `GET`    | `/api/auth/profile` | Get the authenticated user's profile    | 🔒   |
+| `PUT`    | `/api/auth/profile` | Update the authenticated user's profile | 🔒   |
+| `DELETE` | `/api/auth/profile` | Delete the authenticated user's account | 🔒   |
 
 #### POST `/api/auth/signup` — Request Body
+
 ```json
 {
   "fullName": "John Doe",
@@ -218,6 +231,7 @@ Visit `http://localhost:8000` to confirm the API is live.
 ```
 
 #### POST `/api/auth/login` — Request Body
+
 ```json
 {
   "email": "john@example.com",
@@ -226,6 +240,7 @@ Visit `http://localhost:8000` to confirm the API is live.
 ```
 
 #### PUT `/api/auth/profile` — Request Body (all fields optional)
+
 ```json
 {
   "fullName": "John Doe",
@@ -238,53 +253,54 @@ Visit `http://localhost:8000` to confirm the API is live.
 
 ### Menu — `/api/menu`
 
-| Method   | Endpoint        | Description                          | Auth |
-|----------|-----------------|--------------------------------------|------|
-| `GET`    | `/api/menu`     | Get all menu items (with filters)    | —    |
-| `GET`    | `/api/menu/:id` | Get a single menu item by ID         | —    |
-| `POST`   | `/api/menu`     | Create a new food item               | 🔒 👑 |
-| `PUT`    | `/api/menu/:id` | Update an existing food item         | 🔒 👑 |
-| `DELETE` | `/api/menu/:id` | Delete a food item                   | 🔒 👑 |
+| Method   | Endpoint        | Description                       | Auth  |
+| -------- | --------------- | --------------------------------- | ----- |
+| `GET`    | `/api/menu`     | Get all menu items (with filters) | —     |
+| `GET`    | `/api/menu/:id` | Get a single menu item by ID      | —     |
+| `POST`   | `/api/menu`     | Create a new food item            | 🔒 👑 |
+| `PUT`    | `/api/menu/:id` | Update an existing food item      | 🔒 👑 |
+| `DELETE` | `/api/menu/:id` | Delete a food item                | 🔒 👑 |
 
 #### GET `/api/menu` — Query Parameters
 
-| Parameter  | Type    | Description                                             |
-|------------|---------|---------------------------------------------------------|
-| `search`   | string  | Search food by name (case-insensitive)                  |
-| `category` | string  | Filter by food category                                 |
-| `available`| boolean | Filter by availability (`true` / `false`)               |
-| `priceMin` | number  | Minimum price filter                                    |
-| `priceMax` | number  | Maximum price filter                                    |
-| `sort`     | string  | Sort order: `rating`, `newest`, `price-asc`, `price-desc` |
-| `page`     | integer | Page number (default: `1`)                              |
-| `limit`    | integer | Items per page (default: `10`, max: `100`)              |
+| Parameter   | Type    | Description                                               |
+| ----------- | ------- | --------------------------------------------------------- |
+| `search`    | string  | Search food by name (case-insensitive)                    |
+| `category`  | string  | Filter by food category                                   |
+| `available` | boolean | Filter by availability (`true` / `false`)                 |
+| `priceMin`  | number  | Minimum price filter                                      |
+| `priceMax`  | number  | Maximum price filter                                      |
+| `sort`      | string  | Sort order: `rating`, `newest`, `price-asc`, `price-desc` |
+| `page`      | integer | Page number (default: `1`)                                |
+| `limit`     | integer | Items per page (default: `10`, max: `100`)                |
 
 #### POST/PUT `/api/menu` — Form Data (`multipart/form-data`)
 
-| Field             | Type    | Required | Description                   |
-|-------------------|---------|----------|-------------------------------|
-| `name`            | string  | Yes      | Food item name                |
-| `category`        | string  | Yes      | Food category                 |
-| `price`           | number  | Yes      | Price                         |
-| `description`     | string  | No       | Food description              |
-| `available`       | boolean | No       | Availability status           |
-| `preparationTime` | integer | No       | Preparation time in minutes   |
-| `ingredients`     | array   | No       | List of ingredients           |
-| `image`           | file    | No       | Food image (binary upload)    |
+| Field             | Type    | Required | Description                 |
+| ----------------- | ------- | -------- | --------------------------- |
+| `name`            | string  | Yes      | Food item name              |
+| `category`        | string  | Yes      | Food category               |
+| `price`           | number  | Yes      | Price                       |
+| `description`     | string  | No       | Food description            |
+| `available`       | boolean | No       | Availability status         |
+| `preparationTime` | integer | No       | Preparation time in minutes |
+| `ingredients`     | array   | No       | List of ingredients         |
+| `image`           | file    | No       | Food image (binary upload)  |
 
 ---
 
 ### Cart — `/api/cart`
 
-| Method   | Endpoint                    | Description                          | Auth |
-|----------|-----------------------------|--------------------------------------|------|
-| `GET`    | `/api/cart`                 | Get the authenticated user's cart    | 🔒   |
-| `POST`   | `/api/cart/add`             | Add a food item to the cart          | 🔒   |
-| `PUT`    | `/api/cart/update`          | Update quantity of a cart item       | 🔒   |
-| `DELETE` | `/api/cart/remove/:foodId`  | Remove a specific item from the cart | 🔒   |
-| `DELETE` | `/api/cart/clear`           | Clear all items from the cart        | 🔒   |
+| Method   | Endpoint                   | Description                          | Auth |
+| -------- | -------------------------- | ------------------------------------ | ---- |
+| `GET`    | `/api/cart`                | Get the authenticated user's cart    | 🔒   |
+| `POST`   | `/api/cart/add`            | Add a food item to the cart          | 🔒   |
+| `PUT`    | `/api/cart/update`         | Update quantity of a cart item       | 🔒   |
+| `DELETE` | `/api/cart/remove/:foodId` | Remove a specific item from the cart | 🔒   |
+| `DELETE` | `/api/cart/clear`          | Clear all items from the cart        | 🔒   |
 
 #### POST `/api/cart/add` — Request Body
+
 ```json
 {
   "foodId": "6870ab12cd34ef5678901234",
@@ -293,6 +309,7 @@ Visit `http://localhost:8000` to confirm the API is live.
 ```
 
 #### PUT `/api/cart/update` — Request Body
+
 ```json
 {
   "foodId": "6870ab12cd34ef5678901234",
@@ -304,17 +321,18 @@ Visit `http://localhost:8000` to confirm the API is live.
 
 ### Orders — `/api/orders`
 
-| Method   | Endpoint                  | Description                                           | Auth     |
-|----------|---------------------------|-------------------------------------------------------|----------|
-| `POST`   | `/api/orders`             | Create a new order from the user's cart               | 🔒       |
-| `GET`    | `/api/orders`             | Get orders (user sees own; admin sees all)            | 🔒       |
-| `GET`    | `/api/orders/my-orders`   | Get all orders belonging to the authenticated user    | 🔒       |
-| `GET`    | `/api/orders/:id`         | Get a single order by ID                              | 🔒       |
-| `PUT`    | `/api/orders/:id/status`  | Update an order's status                              | 🔒 👑    |
-| `PATCH`  | `/api/orders/:id/status`  | Update an order's status (alias)                      | 🔒 👑    |
-| `DELETE` | `/api/orders/:id`         | Permanently delete an order                           | 🔒 👑    |
+| Method   | Endpoint                 | Description                                        | Auth  |
+| -------- | ------------------------ | -------------------------------------------------- | ----- |
+| `POST`   | `/api/orders`            | Create a new order from the user's cart            | 🔒    |
+| `GET`    | `/api/orders`            | Get orders (user sees own; admin sees all)         | 🔒    |
+| `GET`    | `/api/orders/my-orders`  | Get all orders belonging to the authenticated user | 🔒    |
+| `GET`    | `/api/orders/:id`        | Get a single order by ID                           | 🔒    |
+| `PUT`    | `/api/orders/:id/status` | Update an order's status                           | 🔒 👑 |
+| `PATCH`  | `/api/orders/:id/status` | Update an order's status (alias)                   | 🔒 👑 |
+| `DELETE` | `/api/orders/:id`        | Permanently delete an order                        | 🔒 👑 |
 
 #### POST `/api/orders` — Request Body
+
 ```json
 {
   "deliveryAddress": "15 Admiralty Way, Lekki, Lagos",
@@ -325,25 +343,27 @@ Visit `http://localhost:8000` to confirm the API is live.
 > **Payment Methods:** `cash_on_delivery`, `stripe`, `paypal`
 
 #### PUT/PATCH `/api/orders/:id/status` — Request Body
+
 ```json
 {
   "status": "Delivered"
 }
 ```
 
-> **Order Statuses:** `Pending`, `Confirmed`, `Preparing`, `Out for Delivery`, `Delivered`, `Cancelled`
+> **Order Statuses:** `Pending`, `Preparing`, `Out for Delivery`, `Delivered`, `Cancelled`
 
 ---
 
 ### Reviews — `/api/reviews`
 
-| Method   | Endpoint               | Description                                                        | Auth  |
-|----------|------------------------|--------------------------------------------------------------------|-------|
-| `POST`   | `/api/reviews`         | Submit a review for a food item (only for delivered orders)        | 🔒    |
-| `GET`    | `/api/reviews/:foodId` | Get all reviews for a specific food item                           | —     |
-| `DELETE` | `/api/reviews/:id`     | Delete a review (owner or admin only)                              | 🔒    |
+| Method   | Endpoint               | Description                                                 | Auth |
+| -------- | ---------------------- | ----------------------------------------------------------- | ---- |
+| `POST`   | `/api/reviews`         | Submit a review for a food item (only for delivered orders) | 🔒   |
+| `GET`    | `/api/reviews/:foodId` | Get all reviews for a specific food item                    | —    |
+| `DELETE` | `/api/reviews/:id`     | Delete a review (owner or admin only)                       | 🔒   |
 
 #### POST `/api/reviews` — Request Body
+
 ```json
 {
   "foodId": "6870ab12cd34ef5678901234",
@@ -359,11 +379,11 @@ Visit `http://localhost:8000` to confirm the API is live.
 
 ### Favorites — `/api/favorites`
 
-| Method   | Endpoint                  | Description                                    | Auth |
-|----------|---------------------------|------------------------------------------------|------|
-| `GET`    | `/api/favorites`          | Get the authenticated user's favorite foods    | 🔒   |
-| `POST`   | `/api/favorites/:foodId`  | Add a food item to favorites                   | 🔒   |
-| `DELETE` | `/api/favorites/:foodId`  | Remove a food item from favorites              | 🔒   |
+| Method   | Endpoint                 | Description                                 | Auth |
+| -------- | ------------------------ | ------------------------------------------- | ---- |
+| `GET`    | `/api/favorites`         | Get the authenticated user's favorite foods | 🔒   |
+| `POST`   | `/api/favorites/:foodId` | Add a food item to favorites                | 🔒   |
+| `DELETE` | `/api/favorites/:foodId` | Remove a food item from favorites           | 🔒   |
 
 ---
 
@@ -371,23 +391,23 @@ Visit `http://localhost:8000` to confirm the API is live.
 
 All admin endpoints require both 🔒 authentication and 👑 admin role.
 
-| Method   | Endpoint                      | Description                                           | Auth     |
-|----------|-------------------------------|-------------------------------------------------------|----------|
-| `GET`    | `/api/admin/dashboard`        | Get dashboard statistics (users, orders, revenue)     | 🔒 👑    |
+| Method | Endpoint               | Description                                       | Auth  |
+| ------ | ---------------------- | ------------------------------------------------- | ----- |
+| `GET`  | `/api/admin/dashboard` | Get dashboard statistics (users, orders, revenue) | 🔒 👑 |
 
 #### Dashboard Response Data
 
 The dashboard endpoint returns:
 
-| Field             | Description                              |
-|-------------------|------------------------------------------|
-| `totalUsers`      | Total registered users                   |
-| `totalOrders`     | Total orders placed                      |
-| `revenue`         | Total revenue from all orders            |
-| `pendingOrders`   | Count of orders in `Pending` status      |
-| `mostOrderedFoods`| Top 5 most ordered food items            |
-| `salesByMonth`    | Monthly sales aggregation                |
-| `reviews`         | Total number of reviews                  |
+| Field              | Description                         |
+| ------------------ | ----------------------------------- |
+| `totalUsers`       | Total registered users              |
+| `totalOrders`      | Total orders placed                 |
+| `revenue`          | Total revenue from all orders       |
+| `pendingOrders`    | Count of orders in `Pending` status |
+| `mostOrderedFoods` | Top 5 most ordered food items       |
+| `salesByMonth`     | Monthly sales aggregation           |
+| `reviews`          | Total number of reviews             |
 
 ---
 
@@ -435,37 +455,37 @@ This section documents how the backend meets every requirement from the **Online
 
 ### 1. Technology Stack
 
-| Technology | Required | Status | Notes |
-|---|---|---|---|
-| Node.js | ✅ | ✅ Met | Runtime environment |
-| Express.js | ✅ | ✅ Met | `app.js`, `server.js` |
-| MongoDB Atlas | ✅ | ✅ Met | Connected via `MONGO_URI` in `.env` |
-| Mongoose | ✅ | ✅ Met | All models use Mongoose schemas |
-| JSON Web Token (JWT) | ✅ | ✅ Met | `jsonwebtoken` — token sign & verify |
-| bcryptjs | ✅ | ✅ Met | `bcrypt` package used (functionally identical to `bcryptjs`) |
-| dotenv | ✅ | ✅ Met | `.env` loaded at startup |
-| express-validator | ✅ | ✅ Met | All routes validated via `src/validators/` |
-| helmet | ✅ | ✅ Met | Applied globally in `app.js` |
-| cors | ✅ | ✅ Met | Configured with `CLIENT_URL` origin whitelist |
-| morgan | ✅ | ✅ Met | HTTP request logging in `app.js` |
+| Technology           | Required | Status | Notes                                                        |
+| -------------------- | -------- | ------ | ------------------------------------------------------------ |
+| Node.js              | ✅       | ✅ Met | Runtime environment                                          |
+| Express.js           | ✅       | ✅ Met | `app.js`, `server.js`                                        |
+| MongoDB Atlas        | ✅       | ✅ Met | Connected via `MONGO_URI` in `.env`                          |
+| Mongoose             | ✅       | ✅ Met | All models use Mongoose schemas                              |
+| JSON Web Token (JWT) | ✅       | ✅ Met | `jsonwebtoken` — token sign & verify                         |
+| bcryptjs             | ✅       | ✅ Met | `bcrypt` package used (functionally identical to `bcryptjs`) |
+| dotenv               | ✅       | ✅ Met | `.env` loaded at startup                                     |
+| express-validator    | ✅       | ✅ Met | All routes validated via `src/validators/`                   |
+| helmet               | ✅       | ✅ Met | Applied globally in `app.js`                                 |
+| cors                 | ✅       | ✅ Met | Configured with `CLIENT_URL` origin whitelist                |
+| morgan               | ✅       | ✅ Met | HTTP request logging in `app.js`                             |
 
 ---
 
 ### 2. Folder Structure
 
-| Required Path | Status | Actual Path |
-|---|---|---|
-| `config/db.js` | ✅ Met | `src/config/db.js` |
-| `controllers/` | ✅ Met | `src/controllers/` — 7 controller files |
-| `middleware/` | ✅ Met | `src/middleware/` — auth, errorHandler, upload, validate |
-| `models/` | ✅ Met | `src/models/` — User, Food, Cart, Order, Review |
-| `routes/` | ✅ Met | `src/routes/` — 8 route files + index |
-| `validators/` | ✅ Met | `src/validators/` — auth, menu, cart, order, review |
-| `utils/` | ✅ Met | `src/utils/` — logger, seed |
-| `.env` | ✅ Met | `.env` (root) |
-| `app.js` | ✅ Met | `src/app.js` |
-| `server.js` | ✅ Met | `src/server.js` |
-| `package.json` | ✅ Met | `package.json` (root) |
+| Required Path  | Status | Actual Path                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| `config/db.js` | ✅ Met | `src/config/db.js`                                       |
+| `controllers/` | ✅ Met | `src/controllers/` — 7 controller files                  |
+| `middleware/`  | ✅ Met | `src/middleware/` — auth, errorHandler, upload, validate |
+| `models/`      | ✅ Met | `src/models/` — User, Food, Cart, Order, Review          |
+| `routes/`      | ✅ Met | `src/routes/` — 8 route files + index                    |
+| `validators/`  | ✅ Met | `src/validators/` — auth, menu, cart, order, review      |
+| `utils/`       | ✅ Met | `src/utils/` — logger, seed                              |
+| `.env`         | ✅ Met | `.env` (root)                                            |
+| `app.js`       | ✅ Met | `src/app.js`                                             |
+| `server.js`    | ✅ Met | `src/server.js`                                          |
+| `package.json` | ✅ Met | `package.json` (root)                                    |
 
 > All paths sit under `src/` — a clean separation of source files from project root config.
 
@@ -475,54 +495,54 @@ This section documents how the backend meets every requirement from the **Online
 
 #### Users Collection
 
-| Required Field | Status | Actual Field | Notes |
-|---|---|---|---|
-| `name` | ✅ Met | `fullName` | Trimmed, 2–100 chars |
-| `email` | ✅ Met | `email` | Unique, lowercase, validated |
-| `password` | ✅ Met | `password` | Hashed with bcrypt, `select: false` |
-| `phone` | ✅ Met | `phone` | Optional, max 20 chars |
-| `role` (customer \| admin) | ✅ Met | `role` | Enum: `customer`, `admin` |
-| `timestamps` | ✅ Met | `timestamps: true` | Auto `createdAt`, `updatedAt` |
+| Required Field             | Status | Actual Field       | Notes                               |
+| -------------------------- | ------ | ------------------ | ----------------------------------- |
+| `name`                     | ✅ Met | `fullName`         | Trimmed, 2–100 chars                |
+| `email`                    | ✅ Met | `email`            | Unique, lowercase, validated        |
+| `password`                 | ✅ Met | `password`         | Hashed with bcrypt, `select: false` |
+| `phone`                    | ✅ Met | `phone`            | Optional, max 20 chars              |
+| `role` (customer \| admin) | ✅ Met | `role`             | Enum: `customer`, `admin`           |
+| `timestamps`               | ✅ Met | `timestamps: true` | Auto `createdAt`, `updatedAt`       |
 
 #### Menu (Food) Collection
 
-| Required Field | Status | Actual Field | Notes |
-|---|---|---|---|
-| `name` | ✅ Met | `name` | Required, indexed |
-| `description` | ✅ Met | `description` | Optional, max 1000 chars |
-| `price` | ✅ Met | `price` | Required, min 0, rounded to 2dp |
-| `category` | ✅ Met | `category` | Required, indexed |
-| `imageUrl` | ✅ Met | `image` | Stored as URL path string |
-| `isAvailable` | ✅ Met | `available` | Boolean, default `true` |
-| `timestamps` | ✅ Met | `timestamps: true` | Auto `createdAt`, `updatedAt` |
+| Required Field | Status | Actual Field       | Notes                           |
+| -------------- | ------ | ------------------ | ------------------------------- |
+| `name`         | ✅ Met | `name`             | Required, indexed               |
+| `description`  | ✅ Met | `description`      | Optional, max 1000 chars        |
+| `price`        | ✅ Met | `price`            | Required, min 0, rounded to 2dp |
+| `category`     | ✅ Met | `category`         | Required, indexed               |
+| `imageUrl`     | ✅ Met | `image`            | Stored as URL path string       |
+| `isAvailable`  | ✅ Met | `available`        | Boolean, default `true`         |
+| `timestamps`   | ✅ Met | `timestamps: true` | Auto `createdAt`, `updatedAt`   |
 
 #### Orders Collection
 
-| Required Field | Status | Actual Field | Notes |
-|---|---|---|---|
-| `user` (ObjectId → User) | ✅ Met | `customer` | Ref: `User`, indexed |
-| `items` | ✅ Met | `items` | Array of `{ food, quantity, price }` |
-| `totalAmount` | ✅ Met | `total` | Calculated: subtotal + deliveryFee |
-| `deliveryAddress` | ✅ Met | `deliveryAddress` | Required, trimmed |
-| `status` — Pending | ✅ Met | `orderStatus: 'Pending'` | Default status |
-| `status` — Preparing | ✅ Met | `orderStatus: 'Preparing'` | In enum |
-| `status` — Out for Delivery | ✅ Met | `orderStatus: 'Out for Delivery'` | In enum |
-| `status` — Delivered | ✅ Met | `orderStatus: 'Delivered'` | In enum |
-| `status` — Cancelled | ✅ Met | `orderStatus: 'Cancelled'` | In enum |
-| `timestamps` | ✅ Met | `timestamps: true` | Auto `createdAt`, `updatedAt` |
+| Required Field              | Status | Actual Field                      | Notes                                |
+| --------------------------- | ------ | --------------------------------- | ------------------------------------ |
+| `user` (ObjectId → User)    | ✅ Met | `customer`                        | Ref: `User`, indexed                 |
+| `items`                     | ✅ Met | `items`                           | Array of `{ food, quantity, price }` |
+| `totalAmount`               | ✅ Met | `total`                           | Calculated: subtotal + deliveryFee   |
+| `deliveryAddress`           | ✅ Met | `deliveryAddress`                 | Required, trimmed                    |
+| `status` — Pending          | ✅ Met | `orderStatus: 'Pending'`          | Default status                       |
+| `status` — Preparing        | ✅ Met | `orderStatus: 'Preparing'`        | In enum                              |
+| `status` — Out for Delivery | ✅ Met | `orderStatus: 'Out for Delivery'` | In enum                              |
+| `status` — Delivered        | ✅ Met | `orderStatus: 'Delivered'`        | In enum                              |
+| `status` — Cancelled        | ✅ Met | `orderStatus: 'Cancelled'`        | In enum                              |
+| `timestamps`                | ✅ Met | `timestamps: true`                | Auto `createdAt`, `updatedAt`        |
 
 ---
 
 ### 4. Authentication
 
-| Requirement | Status | Implementation |
-|---|---|---|
-| User Registration | ✅ Met | `POST /api/auth/signup` → `authController.signup` |
-| User Login | ✅ Met | `POST /api/auth/login` → `authController.login` |
-| Password Hashing | ✅ Met | `bcrypt.hash()` in `User.js` pre-save hook |
-| JWT Token Generation | ✅ Met | `jwt.sign()` in `authController.js` — 30-day expiry |
-| JWT Verification | ✅ Met | `jwt.verify()` in `middleware/auth.js` |
-| Protected Routes | ✅ Met | `protect` middleware applied to all private routes |
+| Requirement              | Status | Implementation                                       |
+| ------------------------ | ------ | ---------------------------------------------------- |
+| User Registration        | ✅ Met | `POST /api/auth/signup` → `authController.signup`    |
+| User Login               | ✅ Met | `POST /api/auth/login` → `authController.login`      |
+| Password Hashing         | ✅ Met | `bcrypt.hash()` in `User.js` pre-save hook           |
+| JWT Token Generation     | ✅ Met | `jwt.sign()` in `authController.js` — 30-day expiry  |
+| JWT Verification         | ✅ Met | `jwt.verify()` in `middleware/auth.js`               |
+| Protected Routes         | ✅ Met | `protect` middleware applied to all private routes   |
 | Role-Based Authorization | ✅ Met | `authorizeRoles('admin')` middleware on admin routes |
 
 ---
@@ -531,67 +551,67 @@ This section documents how the backend meets every requirement from the **Online
 
 #### Authentication
 
-| Requirement | Status | Endpoint |
-|---|---|---|
+| Requirement   | Status | Endpoint                |
+| ------------- | ------ | ----------------------- |
 | Register user | ✅ Met | `POST /api/auth/signup` |
-| Login user | ✅ Met | `POST /api/auth/login` |
+| Login user    | ✅ Met | `POST /api/auth/login`  |
 
 #### Users
 
-| Requirement | Status | Endpoint |
-|---|---|---|
-| Get user profile | ✅ Met | `GET /api/auth/profile` |
+| Requirement         | Status | Endpoint                |
+| ------------------- | ------ | ----------------------- |
+| Get user profile    | ✅ Met | `GET /api/auth/profile` |
 | Update user profile | ✅ Met | `PUT /api/auth/profile` |
 
 #### Menu
 
-| Requirement | Status | Endpoint |
-|---|---|---|
-| Get all meals | ✅ Met | `GET /api/menu` |
-| Get meal by ID | ✅ Met | `GET /api/menu/:id` |
-| Create meal (Admin) | ✅ Met | `POST /api/menu` |
-| Update meal (Admin) | ✅ Met | `PUT /api/menu/:id` |
+| Requirement         | Status | Endpoint               |
+| ------------------- | ------ | ---------------------- |
+| Get all meals       | ✅ Met | `GET /api/menu`        |
+| Get meal by ID      | ✅ Met | `GET /api/menu/:id`    |
+| Create meal (Admin) | ✅ Met | `POST /api/menu`       |
+| Update meal (Admin) | ✅ Met | `PUT /api/menu/:id`    |
 | Delete meal (Admin) | ✅ Met | `DELETE /api/menu/:id` |
 
 #### Orders
 
-| Requirement | Status | Endpoint |
-|---|---|---|
-| Create order | ✅ Met | `POST /api/orders` |
-| Get customer orders | ✅ Met | `GET /api/orders/my-orders` |
-| Get all orders (Admin) | ✅ Met | `GET /api/orders` (admin role gets all) |
+| Requirement                 | Status | Endpoint                                                      |
+| --------------------------- | ------ | ------------------------------------------------------------- |
+| Create order                | ✅ Met | `POST /api/orders`                                            |
+| Get customer orders         | ✅ Met | `GET /api/orders/my-orders`                                   |
+| Get all orders (Admin)      | ✅ Met | `GET /api/orders` (admin role gets all)                       |
 | Update order status (Admin) | ✅ Met | `PUT /api/orders/:id/status` + `PATCH /api/orders/:id/status` |
 
 ---
 
 ### 6. Business Logic
 
-| Requirement | Status | Location |
-|---|---|---|
-| Validate credentials | ✅ Met | `authController.login` — checks email + comparePassword |
-| Hash passwords | ✅ Met | `User.js` pre-save hook using bcrypt |
-| Compare passwords | ✅ Met | `userSchema.methods.comparePassword` using `bcrypt.compare` |
-| Generate JWT | ✅ Met | `createToken()` in `authController.js` |
-| Create menu item | ✅ Met | `menuController.createFood` |
-| Update menu item | ✅ Met | `menuController.updateFood` |
-| Delete menu item | ✅ Met | `menuController.deleteFood` |
-| Retrieve menu items | ✅ Met | `menuController.getMenu` + `getFoodById` |
-| Create new order | ✅ Met | `orderController.createOrder` |
-| Calculate total amount | ✅ Met | `subtotal + deliveryFee` computed in `createOrder` |
-| Save order | ✅ Met | `Order.create()` in `orderController.createOrder` |
-| Update order status | ✅ Met | `orderController.updateOrderStatus` |
-| Retrieve customer orders | ✅ Met | `orderController.getMyOrders` |
+| Requirement              | Status | Location                                                    |
+| ------------------------ | ------ | ----------------------------------------------------------- |
+| Validate credentials     | ✅ Met | `authController.login` — checks email + comparePassword     |
+| Hash passwords           | ✅ Met | `User.js` pre-save hook using bcrypt                        |
+| Compare passwords        | ✅ Met | `userSchema.methods.comparePassword` using `bcrypt.compare` |
+| Generate JWT             | ✅ Met | `createToken()` in `authController.js`                      |
+| Create menu item         | ✅ Met | `menuController.createFood`                                 |
+| Update menu item         | ✅ Met | `menuController.updateFood`                                 |
+| Delete menu item         | ✅ Met | `menuController.deleteFood`                                 |
+| Retrieve menu items      | ✅ Met | `menuController.getMenu` + `getFoodById`                    |
+| Create new order         | ✅ Met | `orderController.createOrder`                               |
+| Calculate total amount   | ✅ Met | `subtotal + deliveryFee` computed in `createOrder`          |
+| Save order               | ✅ Met | `Order.create()` in `orderController.createOrder`           |
+| Update order status      | ✅ Met | `orderController.updateOrderStatus`                         |
+| Retrieve customer orders | ✅ Met | `orderController.getMyOrders`                               |
 
 ---
 
 ### 7. Middleware
 
-| Requirement | Status | File | Responsibility |
-|---|---|---|---|
-| Authentication Middleware | ✅ Met | `src/middleware/auth.js` → `protect` | Verifies JWT, decodes token, attaches `req.user` |
-| Authorization Middleware | ✅ Met | `src/middleware/auth.js` → `authorizeRoles` | Restricts admin-only routes by role check |
-| Error Handling Middleware | ✅ Met | `src/middleware/errorHandler.js` | Returns consistent JSON error responses |
-| Validation Middleware | ✅ Met | `src/middleware/validate.js` | Runs express-validator results, returns 400 on failure |
+| Requirement               | Status | File                                        | Responsibility                                         |
+| ------------------------- | ------ | ------------------------------------------- | ------------------------------------------------------ |
+| Authentication Middleware | ✅ Met | `src/middleware/auth.js` → `protect`        | Verifies JWT, decodes token, attaches `req.user`       |
+| Authorization Middleware  | ✅ Met | `src/middleware/auth.js` → `authorizeRoles` | Restricts admin-only routes by role check              |
+| Error Handling Middleware | ✅ Met | `src/middleware/errorHandler.js`            | Returns consistent JSON error responses                |
+| Validation Middleware     | ✅ Met | `src/middleware/validate.js`                | Runs express-validator results, returns 400 on failure |
 
 ---
 
@@ -599,62 +619,62 @@ This section documents how the backend meets every requirement from the **Online
 
 #### Authentication (`src/validators/auth.js`)
 
-| Field | Status |
-|---|---|
-| Full Name | ✅ Validated — required, trimmed |
-| Email | ✅ Validated — `isEmail()` format check |
-| Password | ✅ Validated — minimum 6 characters |
-| Phone Number | ✅ Validated — optional, trimmed |
+| Field        | Status                                  |
+| ------------ | --------------------------------------- |
+| Full Name    | ✅ Validated — required, trimmed        |
+| Email        | ✅ Validated — `isEmail()` format check |
+| Password     | ✅ Validated — minimum 6 characters     |
+| Phone Number | ✅ Validated — optional, trimmed        |
 
 #### Menu (`src/validators/menu.js`)
 
-| Field | Status |
-|---|---|
-| Meal Name | ✅ Validated — required, trimmed |
-| Description | ✅ Validated — optional, trimmed |
-| Price | ✅ Validated — `isFloat({ min: 0 })` |
-| Category | ✅ Validated — required, trimmed |
-| Availability | ✅ Validated — optional boolean |
+| Field        | Status                               |
+| ------------ | ------------------------------------ |
+| Meal Name    | ✅ Validated — required, trimmed     |
+| Description  | ✅ Validated — optional, trimmed     |
+| Price        | ✅ Validated — `isFloat({ min: 0 })` |
+| Category     | ✅ Validated — required, trimmed     |
+| Availability | ✅ Validated — optional boolean      |
 
 #### Orders (`src/validators/order.js`)
 
-| Field | Status |
-|---|---|
-| Delivery Address | ✅ Validated — required, trimmed |
-| Payment Method | ✅ Validated — must be one of allowed values |
-| Order Status | ✅ Validated — must match allowed status enum |
+| Field            | Status                                        |
+| ---------------- | --------------------------------------------- |
+| Delivery Address | ✅ Validated — required, trimmed              |
+| Payment Method   | ✅ Validated — must be one of allowed values  |
+| Order Status     | ✅ Validated — must match allowed status enum |
 
 ---
 
 ### 9. Security
 
-| Requirement | Status | Implementation |
-|---|---|---|
-| Password hashing (bcryptjs) | ✅ Met | `bcrypt` with 12 salt rounds in `User.js` |
-| JWT Authentication | ✅ Met | Signed tokens with `JWT_SECRET`, verified on every protected route |
-| Helmet | ✅ Met | `app.use(helmet())` in `app.js` |
-| CORS | ✅ Met | `app.use(cors({ origin: allowedOrigins }))` in `app.js` |
-| Rate Limiting | ✅ Met | `express-rate-limit` — 100 requests per 15 minutes |
-| Environment Variables | ✅ Met | All secrets stored in `.env`, loaded via `dotenv` |
+| Requirement                 | Status | Implementation                                                     |
+| --------------------------- | ------ | ------------------------------------------------------------------ |
+| Password hashing (bcryptjs) | ✅ Met | `bcrypt` with 12 salt rounds in `User.js`                          |
+| JWT Authentication          | ✅ Met | Signed tokens with `JWT_SECRET`, verified on every protected route |
+| Helmet                      | ✅ Met | `app.use(helmet())` in `app.js`                                    |
+| CORS                        | ✅ Met | `app.use(cors({ origin: allowedOrigins }))` in `app.js`            |
+| Rate Limiting               | ✅ Met | `express-rate-limit` — 100 requests per 15 minutes                 |
+| Environment Variables       | ✅ Met | All secrets stored in `.env`, loaded via `dotenv`                  |
 
 ---
 
 ### 10. Environment Variables
 
-| Required Variable | Status | Actual Variable |
-|---|---|---|
-| `PORT` | ✅ Met | `PORT` |
-| `MONGODB_URI` | ✅ Met | `MONGO_URI` (same purpose) |
-| `JWT_SECRET` | ✅ Met | `JWT_SECRET` |
+| Required Variable | Status | Actual Variable            |
+| ----------------- | ------ | -------------------------- |
+| `PORT`            | ✅ Met | `PORT`                     |
+| `MONGODB_URI`     | ✅ Met | `MONGO_URI` (same purpose) |
+| `JWT_SECRET`      | ✅ Met | `JWT_SECRET`               |
 
 ---
 
 ### 11. Database Connection
 
-| Requirement | Status | Implementation |
-|---|---|---|
-| Establish connection | ✅ Met | `mongoose.connect()` in `src/config/db.js` |
-| Handle connection success | ✅ Met | `logger.info('MongoDB connected')` on success |
+| Requirement               | Status | Implementation                                                  |
+| ------------------------- | ------ | --------------------------------------------------------------- |
+| Establish connection      | ✅ Met | `mongoose.connect()` in `src/config/db.js`                      |
+| Handle connection success | ✅ Met | `logger.info('MongoDB connected')` on success                   |
 | Handle connection failure | ✅ Met | Retry logic — 4 attempts with 3s delay, throws on final failure |
 
 > The DB connection includes **automatic retry** (up to 4 attempts, 3-second delay between each) before failing — going beyond the basic requirement.
@@ -663,36 +683,36 @@ This section documents how the backend meets every requirement from the **Online
 
 ### 12. Error Handling
 
-| Requirement | Status | Implementation |
-|---|---|---|
-| Invalid requests | ✅ Met | `express-validator` catches and returns `400` |
-| Unauthorized access | ✅ Met | `protect` middleware returns `401` / `403` |
-| Resource not found | ✅ Met | `notFound` middleware returns `404` |
-| Validation errors | ✅ Met | Mongoose `ValidationError` caught in `errorHandler.js` |
+| Requirement            | Status | Implementation                                              |
+| ---------------------- | ------ | ----------------------------------------------------------- |
+| Invalid requests       | ✅ Met | `express-validator` catches and returns `400`               |
+| Unauthorized access    | ✅ Met | `protect` middleware returns `401` / `403`                  |
+| Resource not found     | ✅ Met | `notFound` middleware returns `404`                         |
+| Validation errors      | ✅ Met | Mongoose `ValidationError` caught in `errorHandler.js`      |
 | Internal server errors | ✅ Met | Global `errorHandler` catches all unhandled errors as `500` |
-| JSON responses | ✅ Met | All error responses return `{ success: false, message }` |
+| JSON responses         | ✅ Met | All error responses return `{ success: false, message }`    |
 
 ---
 
 ### 13. Logging
 
-| Requirement | Status | Implementation |
-|---|---|---|
-| Request logging | ✅ Met | `morgan('combined')` in `app.js` |
-| API monitoring | ✅ Met | Winston logger (`src/utils/logger.js`) for structured server-side logs |
+| Requirement     | Status | Implementation                                                         |
+| --------------- | ------ | ---------------------------------------------------------------------- |
+| Request logging | ✅ Met | `morgan('combined')` in `app.js`                                       |
+| API monitoring  | ✅ Met | Winston logger (`src/utils/logger.js`) for structured server-side logs |
 
 ---
 
 ### 14. Deployment Readiness
 
-| Requirement | Status | Notes |
-|---|---|---|
-| Deployable to Render / Railway | ✅ Ready | `npm start` runs `node src/server.js` — no build step needed |
-| Environment variable configuration | ✅ Ready | All config via `.env` — set in hosting dashboard |
-| MongoDB Atlas connection | ✅ Ready | Accepts any `mongodb://` URI via `MONGO_URI` |
-| CORS configured for frontend | ✅ Ready | Set `CLIENT_URL` to your deployed frontend URL |
-| Docker support | ✅ Ready | `Dockerfile` and `docker-compose.yml` included |
+| Requirement                        | Status   | Notes                                                        |
+| ---------------------------------- | -------- | ------------------------------------------------------------ |
+| Deployable to Render / Railway     | ✅ Ready | `npm start` runs `node src/server.js` — no build step needed |
+| Environment variable configuration | ✅ Ready | All config via `.env` — set in hosting dashboard             |
+| MongoDB Atlas connection           | ✅ Ready | Accepts any `mongodb://` URI via `MONGO_URI`                 |
+| CORS configured for frontend       | ✅ Ready | Set `CLIENT_URL` to your deployed frontend URL               |
+| Docker support                     | ✅ Ready | `Dockerfile` and `docker-compose.yml` included               |
 
 ## Backend Deployment URL
-https://online-eatery-server.onrender.com
 
+https://online-eatery-server.onrender.com

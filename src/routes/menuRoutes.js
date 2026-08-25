@@ -16,7 +16,7 @@ const {
   menuQueryValidation,
 } = require('../validators/menu');
 
-const { validate } = require('../middleware/validate');
+const { validate, rejectUnknownFields } = require('../middleware/validate');
 const { protect, authorizeRoles } = require('../middleware/auth');
 const upload = require('../middleware/upload');
 
@@ -189,7 +189,23 @@ router.post(
   '/',
   protect,
   authorizeRoles('admin'),
-  upload.single('image'),
+  upload.fields([
+    { name: 'image', maxCount: 1 },
+    { name: 'secondaryImage', maxCount: 1 },
+  ]),
+  rejectUnknownFields([
+    'name',
+    'description',
+    'category',
+    'price',
+    'available',
+    'isAvailable',
+    'ingredients',
+    'preparationTime',
+    'ratings',
+    'image',
+    'secondaryImage',
+  ]),
   foodValidation,
   validate,
   createFood
@@ -255,7 +271,23 @@ router.put(
   '/:id',
   protect,
   authorizeRoles('admin'),
-  upload.single('image'),
+  upload.fields([
+    { name: 'image', maxCount: 1 },
+    { name: 'secondaryImage', maxCount: 1 },
+  ]),
+  rejectUnknownFields([
+    'name',
+    'description',
+    'category',
+    'price',
+    'available',
+    'isAvailable',
+    'ingredients',
+    'preparationTime',
+    'ratings',
+    'image',
+    'secondaryImage',
+  ]),
   foodValidation,
   validate,
   updateFood

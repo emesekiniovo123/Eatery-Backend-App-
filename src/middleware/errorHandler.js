@@ -78,7 +78,11 @@ const errorHandler = (err, req, res, next) => {
   }
 
   // Include stack trace only in development
-  if (process.env.NODE_ENV !== 'production') {
+  const isProduction = ['production', 'prod'].includes(
+    (process.env.NODE_ENV || '').toLowerCase()
+  );
+
+  if (!isProduction) {
     response.stack = err.stack;
   }
 

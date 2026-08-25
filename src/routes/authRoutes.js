@@ -17,7 +17,7 @@ const {
   profileUpdateValidation,
 } = require('../validators/auth');
 
-const { validate } = require('../middleware/validate');
+const { validate, rejectUnknownFields } = require('../middleware/validate');
 const { protect } = require('../middleware/auth');
 
 // =====================================
@@ -72,6 +72,7 @@ const { protect } = require('../middleware/auth');
  */
 router.post(
   '/signup',
+  rejectUnknownFields(['fullName', 'email', 'phone', 'password', 'address']),
   signupValidation,
   validate,
   signup
@@ -124,6 +125,7 @@ router.post(
  */
 router.post(
   '/login',
+  rejectUnknownFields(['email', 'password']),
   loginValidation,
   validate,
   login
@@ -190,6 +192,7 @@ router.get(
 router.put(
   '/profile',
   protect,
+  rejectUnknownFields(['fullName', 'phone', 'address']),
   profileUpdateValidation,
   validate,
   updateProfile

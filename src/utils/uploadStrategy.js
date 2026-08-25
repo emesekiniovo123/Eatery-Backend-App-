@@ -58,20 +58,21 @@ const uploadCloudinaryImage = async (file) => {
   return result.secure_url;
 };
 
-const resolveImageSource = async (req) => {
+const resolveImageSource = async (req, fieldName = 'image') => {
   const mode = getUploadMode();
+  const file = req.file || req.files?.[fieldName]?.[0];
 
-  if (req.file && mode === 'local') {
-    return saveLocalImage(req.file);
+  if (file && mode === 'local') {
+    return saveLocalImage(file);
   }
 
-  if (req.file && mode === 'cloudinary') {
-    return uploadCloudinaryImage(req.file);
+  if (file && mode === 'cloudinary') {
+    return uploadCloudinaryImage(file);
   }
 
-  if (req.file && mode === 'auto') {
+  if (file && mode === 'auto') {
     try {
-      return await uploadCloudinaryImage(req.file);
+      return await uploadCloudinaryImage(file);
     } catch (error) {
       if (process.env.NODE_ENV === 'production') {
         throw new Error(
@@ -80,12 +81,12 @@ const resolveImageSource = async (req) => {
       }
 
       console.warn(`Cloudinary upload failed; saving image locally: ${error.message}`);
-      return saveLocalImage(req.file);
+      return saveLocalImage(file);
     }
   }
 
-  if (req.body?.image) {
-    return req.body.image;
+  if (req.body?.[fieldName]) {
+    return req.body[fieldName];
   }
 
   return '';

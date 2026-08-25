@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Food = require('../models/Food');
 const { normalizeImageUrl } = require('../utils/imageUrl');
 const { resolveImageSource } = require('../utils/uploadStrategy');
+const { recordActivity } = require('../utils/activityLogger');
 
 const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 
@@ -88,6 +89,7 @@ exports.getMenu = async (req, res, next) => {
     const normalizedFoods = foods.map((food) => ({
       ...food,
       image: normalizeImageUrl(food.image),
+      secondaryImage: normalizeImageUrl(food.secondaryImage),
     }));
 
     res.status(200).json({
@@ -138,6 +140,7 @@ exports.getFoodById = async (req, res, next) => {
         food: {
           ...food,
           image: normalizeImageUrl(food.image),
+          secondaryImage: normalizeImageUrl(food.secondaryImage),
         },
       },
     });
@@ -157,21 +160,32 @@ exports.createFood = async (req, res, next) => {
       ...req.body,
     };
 
-    if (req.file || req.body.image) {
-      console.log('📸 File received or image URL provided');
+    if (payload.isAvailable !== undefined && payload.available === undefined) {
+      payload.available = payload.isAvailable;
+    }
+    delete payload.isAvailable;
 
-      const uploadedImage = await resolveImageSource(req);
-
+    if (req.file || req.files?.image?.[0] || req.body.image) {
+      const uploadedImage = await resolveImageSource(req, 'image');
       if (uploadedImage) {
         payload.image = uploadedImage;
       }
     }
 
+    if (req.files?.secondaryImage?.[0] || req.body.secondaryImage) {
+      const uploadedSecondaryImage = await resolveImageSource(req, 'secondaryImage');
+      if (uploadedSecondaryImage) {
+        payload.secondaryImage = uploadedSecondaryImage;
+      }
+    }
+
     const food = await Food.create(payload);
+    await recordActivity({ user: req.user, action: 'food_created', resourceType: 'Food', resourceId: food._id });
 
     const normalizedFood = {
       ...food.toObject(),
       image: normalizeImageUrl(food.image),
+      secondaryImage: normalizeImageUrl(food.secondaryImage),
     };
 
     res.status(201).json({
@@ -213,21 +227,34 @@ exports.updateFood = async (req, res, next) => {
       ...req.body,
     };
 
-    if (req.file || req.body.image) {
-      const uploadedImage = await resolveImageSource(req);
+    if (updatePayload.isAvailable !== undefined && updatePayload.available === undefined) {
+      updatePayload.available = updatePayload.isAvailable;
+    }
+    delete updatePayload.isAvailable;
 
+    if (req.file || req.files?.image?.[0] || req.body.image) {
+      const uploadedImage = await resolveImageSource(req, 'image');
       if (uploadedImage) {
         updatePayload.image = uploadedImage;
+      }
+    }
+
+    if (req.files?.secondaryImage?.[0] || req.body.secondaryImage !== undefined) {
+      const uploadedSecondaryImage = await resolveImageSource(req, 'secondaryImage');
+      if (uploadedSecondaryImage || req.body.secondaryImage === '') {
+        updatePayload.secondaryImage = uploadedSecondaryImage || '';
       }
     }
 
     Object.assign(food, updatePayload);
 
     await food.save();
+    await recordActivity({ user: req.user, action: 'food_updated', resourceType: 'Food', resourceId: food._id });
 
     const updatedFood = {
       ...food.toObject(),
       image: normalizeImageUrl(food.image),
+      secondaryImage: normalizeImageUrl(food.secondaryImage),
     };
 
     res.status(200).json({
@@ -264,6 +291,8 @@ exports.deleteFood = async (req, res, next) => {
         message: 'Food not found',
       });
     }
+
+    await recordActivity({ user: req.user, action: 'food_deleted', resourceType: 'Food', resourceId: food._id });
 
     res.status(200).json({
       success: true,

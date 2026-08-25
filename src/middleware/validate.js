@@ -1,6 +1,22 @@
 
 const { validationResult } = require('express-validator');
 
+const rejectUnknownFields = (allowedFields) => (req, res, next) => {
+  const unknownFields = Object.keys(req.body || {}).filter(
+    (field) => !allowedFields.includes(field)
+  );
+
+  if (unknownFields.length > 0) {
+    return res.status(400).json({
+      success: false,
+      message: 'Unexpected request fields',
+      fields: unknownFields,
+    });
+  }
+
+  return next();
+};
+
 // =====================================
 // Validation Middleware
 // =====================================
@@ -27,5 +43,6 @@ const validate = (req, res, next) => {
 
 module.exports = {
   validate,
+  rejectUnknownFields,
 };
 

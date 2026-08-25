@@ -173,6 +173,10 @@ const seedDatabase = async () => {
       throw new Error('MONGO_URI is not defined.');
     }
 
+    if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD) {
+      throw new Error('ADMIN_EMAIL and ADMIN_PASSWORD must be configured.');
+    }
+
     console.log('🔌 Connecting to database...');
     await connectDB();
 
@@ -183,8 +187,8 @@ const seedDatabase = async () => {
     const users = await User.create([
       {
         fullName: 'Admin User',
-        email: 'admin@eatery.com',
-        password: 'admin1234',
+        email: process.env.ADMIN_EMAIL,
+        password: process.env.ADMIN_PASSWORD,
         role: 'admin',
         address: 'Head Office',
       },
@@ -359,8 +363,8 @@ const seedDatabase = async () => {
 
     console.log('\n✅ Database seeded successfully!\n');
     console.table([
-      { Role: 'Admin', Email: admin.email, Password: 'admin1234' },
-      { Role: 'Customer', Email: customer.email, Password: 'customer1234' },
+      { Role: 'Admin', Email: admin.email },
+      { Role: 'Customer', Email: customer.email },
     ]);
 
     return 0;
@@ -381,7 +385,7 @@ const seedDatabase = async () => {
 
 // Run only when executed directly (do not run on require)
 if (require.main === module) {
-  if (process.env.NODE_ENV === 'production') {
+  if (['production', 'prod'].includes((process.env.NODE_ENV || '').toLowerCase())) {
     console.error('❌ Seeding is disabled in production.');
     process.exit(1);
   }

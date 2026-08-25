@@ -10,10 +10,17 @@ const {
   profileUpdateValidation,
 } = require('../validators/auth');
 
-const { validate } = require('../middleware/validate');
+const { validate, rejectUnknownFields } = require('../middleware/validate');
 const { protect } = require('../middleware/auth');
 
 router.get('/profile', protect, getProfile);
-router.put('/profile', protect, profileUpdateValidation, validate, updateProfile);
+router.put(
+  '/profile',
+  protect,
+  rejectUnknownFields(['fullName', 'phone', 'address']),
+  profileUpdateValidation,
+  validate,
+  updateProfile
+);
 
 module.exports = router;

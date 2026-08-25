@@ -32,5 +32,3 @@ uploads/
 # Docker
 docker-compose.override.yml
 
-# NPM package lock
-package-lock.json

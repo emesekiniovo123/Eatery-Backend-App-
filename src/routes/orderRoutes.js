@@ -15,7 +15,7 @@ const {
   updateOrderStatusValidation,
 } = require('../validators/order');
 
-const { validate } = require('../middleware/validate');
+const { validate, rejectUnknownFields } = require('../middleware/validate');
 const { protect, authorizeRoles } = require('../middleware/auth');
 
 /**
@@ -45,8 +45,6 @@ const { protect, authorizeRoles } = require('../middleware/auth');
  *
  *     CreateOrder:
  *       type: object
- *       required:
- *         - deliveryAddress
  *       properties:
  *         deliveryAddress:
  *           type: string
@@ -86,6 +84,7 @@ const { protect, authorizeRoles } = require('../middleware/auth');
 router.post(
   '/',
   protect,
+  rejectUnknownFields(['deliveryAddress', 'paymentMethod']),
   createOrderValidation,
   validate,
   createOrder
@@ -109,6 +108,7 @@ router.post(
 router.get(
   '/',
   protect,
+  authorizeRoles('admin'),
   getOrders
 );
 
@@ -196,7 +196,6 @@ router.get(
  *                 type: string
  *                 enum:
  *                   - Pending
- *                   - Confirmed
  *                   - Preparing
  *                   - Out for Delivery
  *                   - Delivered
@@ -218,6 +217,7 @@ router.put(
   '/:id/status',
   protect,
   authorizeRoles('admin'),
+  rejectUnknownFields(['status']),
   updateOrderStatusValidation,
   validate,
   updateOrderStatus
@@ -254,7 +254,6 @@ router.put(
  *                 type: string
  *                 enum:
  *                   - Pending
- *                   - Confirmed
  *                   - Preparing
  *                   - Out for Delivery
  *                   - Delivered
@@ -276,6 +275,7 @@ router.patch(
   '/:id/status',
   protect,
   authorizeRoles('admin'),
+  rejectUnknownFields(['status']),
   updateOrderStatusValidation,
   validate,
   updateOrderStatus
