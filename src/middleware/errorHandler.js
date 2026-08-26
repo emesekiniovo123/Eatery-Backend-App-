@@ -59,6 +59,11 @@ const errorHandler = (err, req, res, next) => {
     message = 'Authentication token has expired';
   }
 
+  if (err.code === 'LIMIT_FILE_SIZE') {
+    statusCode = 400;
+    message = 'Image file is too large. Maximum allowed size is 25 MiB.';
+  }
+
   // =====================================
   // Response
   // =====================================

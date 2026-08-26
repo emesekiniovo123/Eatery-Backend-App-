@@ -10,6 +10,7 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 const storage = multer.memoryStorage();
+const maxImageSizeBytes = 25 * 1024 * 1024;
 
 const fileFilter = (req, file, cb) => {
   if (!isAllowedImage(file)) {
@@ -27,7 +28,7 @@ const upload = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: 12 * 1024 * 1024,
+    fileSize: maxImageSizeBytes,
     files: 2,
   },
 });
