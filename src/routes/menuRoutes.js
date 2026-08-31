@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const {
+  getCategories,
   getMenu,
   getFoodById,
   createFood,
@@ -30,6 +31,8 @@ const upload = require('../middleware/upload');
  *   - name: Menu
  *     description: Food menu management endpoints
  */
+
+router.get('/categories', getCategories);
 
 /**
  * @swagger

@@ -1128,3 +1128,5 @@
 {"level":"info","message":"::ffff:127.0.0.1 - - [25/Aug/2026:18:17:09 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-25 19:17:09"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [26/Aug/2026:11:38:30 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-26 12:38:30"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [26/Aug/2026:11:38:32 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-26 12:38:32"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [31/Aug/2026:13:49:52 +0000] \"GET /health HTTP/1.1\" 200 79 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-31 14:49:52"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [31/Aug/2026:13:49:57 +0000] \"POST /api/auth/signup HTTP/1.1\" 400 346 \"-\" \"node\"","service":"food-ordering-api","timestamp":"2026-08-31 14:49:57"}

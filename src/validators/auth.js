@@ -11,10 +11,20 @@ const loginValidation = [
   body('password').notEmpty().withMessage('Password is required'),
 ];
 
+const changePasswordValidation = [
+  body('currentPassword').notEmpty().withMessage('Current password is required'),
+  body('newPassword').isLength({ min: 6 }).withMessage('New password must be at least 6 characters'),
+];
+
 const profileUpdateValidation = [
   body('fullName').optional().trim().notEmpty().withMessage('Full name cannot be empty'),
   body('phone').optional().trim(),
   body('address').optional().trim(),
 ];
 
-module.exports = { signupValidation, loginValidation, profileUpdateValidation };
+module.exports = {
+  signupValidation,
+  loginValidation,
+  changePasswordValidation,
+  profileUpdateValidation,
+};

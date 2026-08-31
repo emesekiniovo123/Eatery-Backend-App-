@@ -6,6 +6,20 @@ const { recordActivity } = require('../utils/activityLogger');
 
 const isValidObjectId = (id) => mongoose.Types.ObjectId.isValid(id);
 
+exports.getCategories = async (req, res, next) => {
+  try {
+    const categories = await Food.distinct('category');
+
+    res.status(200).json({
+      success: true,
+      message: 'Categories fetched successfully',
+      data: { categories: categories.sort((a, b) => a.localeCompare(b)) },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 // =====================================
 // Get Menu
 // =====================================

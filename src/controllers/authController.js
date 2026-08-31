@@ -107,7 +107,38 @@ exports.updateProfile = async (req, res, next) => {
   }
 };
 
+exports.changePassword = async (req, res, next) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
 
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({
+        success: false,
+        message: 'Current password and new password are required',
+      });
+    }
+
+    const isMatch = await req.user.comparePassword(currentPassword);
+
+    if (!isMatch) {
+      return res.status(400).json({
+        success: false,
+        message: 'Current password is incorrect',
+      });
+    }
+
+    req.user.password = newPassword;
+    await req.user.save();
+    await recordActivity({ user: req.user, action: 'password_changed', resourceType: 'User', resourceId: req.user._id });
+
+    res.status(200).json({
+      success: true,
+      message: 'Password changed successfully',
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 exports.deleteProfile = async (req, res, next) => {
   try {
