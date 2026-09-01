@@ -153,10 +153,10 @@ The equivalent routes `/api/auth/profile` (`GET`, `PUT`, and implemented `DELETE
 
 - Auth required: Yes; admin required: No
 - Headers: `Authorization: Bearer <JWT>`, `Content-Type: application/json`
-- Body: `{ deliveryAddress?, paymentMethod? }`; payment methods are `cash_on_delivery`, `stripe`, and `paypal`. Delivery address falls back to the user's saved address.
+- Body: `{ deliveryAddress?, phone?, paymentMethod? }`; payment methods are `cash_on_delivery`, `stripe`, and `paypal`. Delivery address and phone fall back to the user's saved address and phone.
 - Query: None
 - Success: `201`, `{ success, message, data: { order } }`
-- Errors: `400` validation, empty cart, unavailable/deleted food, missing address, or invalid payment method; `401`; `500` transaction/database failure.
+- Errors: `400` validation, empty cart, unavailable/deleted food, missing address/phone, or invalid payment method; `401`; `500` transaction/database failure.
 - Pricing: The backend reads food prices from the database, calculates `totalAmount`, snapshots item prices, and does not trust client pricing fields. A successful transaction clears the cart.
 
 ### GET `/api/orders/my-orders`

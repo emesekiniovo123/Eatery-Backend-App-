@@ -45,10 +45,17 @@ const { protect, authorizeRoles } = require('../middleware/auth');
  *
  *     CreateOrder:
  *       type: object
+ *       required:
+ *         - deliveryAddress
+ *         - phone
+ *         - paymentMethod
  *       properties:
  *         deliveryAddress:
  *           type: string
  *           example: 15 Admiralty Way, Lekki, Lagos
+ *         phone:
+ *           type: string
+ *           example: +2348143276154
  *         paymentMethod:
  *           type: string
  *           enum:
@@ -84,7 +91,7 @@ const { protect, authorizeRoles } = require('../middleware/auth');
 router.post(
   '/',
   protect,
-  rejectUnknownFields(['deliveryAddress', 'paymentMethod']),
+  rejectUnknownFields(['deliveryAddress', 'phone', 'paymentMethod']),
   createOrderValidation,
   validate,
   createOrder

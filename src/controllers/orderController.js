@@ -41,11 +41,27 @@ exports.createOrder = async (req, res, next) => {
 
     const deliveryAddress =
       req.body.deliveryAddress || req.user.address;
+    const phone = req.body.phone || req.user.phone;
+    const email = req.user.email;
+
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email is required',
+      });
+    }
 
     if (!deliveryAddress) {
       return res.status(400).json({
         success: false,
         message: 'Delivery address is required',
+      });
+    }
+
+    if (!phone) {
+      return res.status(400).json({
+        success: false,
+        message: 'Phone number is required',
       });
     }
 
@@ -104,6 +120,8 @@ exports.createOrder = async (req, res, next) => {
         deliveryFee,
         total,
         deliveryAddress,
+        phone,
+        email,
         paymentMethod,
         paymentStatus: payment.status,
       }], { session });

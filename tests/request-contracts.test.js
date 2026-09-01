@@ -31,6 +31,32 @@ test('request contract rejects unexpected fields', () => {
   assert.equal(nextCalled, false);
 });
 
+test('order request contract accepts checkout payload fields', () => {
+  let nextCalled = false;
+  const middleware = rejectUnknownFields(['deliveryAddress', 'phone', 'paymentMethod']);
+
+  middleware(
+    {
+      body: {
+        deliveryAddress: 'Lagos, Nigeria',
+        phone: '+2348143276154',
+        paymentMethod: 'cash_on_delivery',
+      },
+    },
+    {
+      status() {
+        return this;
+      },
+      json() {},
+    },
+    () => {
+      nextCalled = true;
+    }
+  );
+
+  assert.equal(nextCalled, true);
+});
+
 test('payment contract accepts only documented methods', () => {
   for (const method of ['cash_on_delivery', 'stripe', 'paypal']) {
     const payment = processPayment(method, 25);

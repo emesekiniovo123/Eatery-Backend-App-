@@ -75,6 +75,24 @@ const orderSchema = new mongoose.Schema(
       trim: true,
     },
 
+    phone: {
+      type: String,
+      required: [true, 'Phone number is required'],
+      trim: true,
+      match: [/^[+()\d\s-]{7,30}$/, 'Phone number is invalid'],
+    },
+
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      lowercase: true,
+      trim: true,
+      match: [
+        /^\S+@\S+\.\S+$/,
+        'Please enter a valid email address',
+      ],
+    },
+
     paymentMethod: {
       type: String,
       enum: ['cash_on_delivery', 'stripe', 'paypal'],
