@@ -7,12 +7,6 @@ const createOrderValidation = [
     .isLength({ min: 1, max: 300 })
     .withMessage('Delivery address must not be empty'),
 
-  body('phone')
-    .optional({ checkFalsy: true })
-    .trim()
-    .isLength({ min: 7, max: 30 })
-    .withMessage('Phone number must be between 7 and 30 characters'),
-
   body('paymentMethod')
     .exists({ checkFalsy: true })
     .withMessage('Payment method is required')

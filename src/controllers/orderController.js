@@ -41,7 +41,7 @@ exports.createOrder = async (req, res, next) => {
 
     const deliveryAddress =
       req.body.deliveryAddress || req.user.address;
-    const phone = req.body.phone || req.user.phone;
+    const phone = req.user.phone;
     const email = req.user.email;
 
     if (!email) {
