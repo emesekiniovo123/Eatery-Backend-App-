@@ -2,15 +2,13 @@ const { body } = require('express-validator');
 
 const createOrderValidation = [
   body('deliveryAddress')
-    .exists({ checkFalsy: true })
-    .withMessage('Delivery address is required')
+    .optional({ checkFalsy: true })
     .trim()
     .isLength({ min: 1, max: 300 })
     .withMessage('Delivery address must not be empty'),
 
   body('phone')
-    .exists({ checkFalsy: true })
-    .withMessage('Phone number is required')
+    .optional({ checkFalsy: true })
     .trim()
     .isLength({ min: 7, max: 30 })
     .withMessage('Phone number must be between 7 and 30 characters'),
